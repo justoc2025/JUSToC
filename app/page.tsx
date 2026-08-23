@@ -11,45 +11,16 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main>
-      <header className="site-header">
-        <a className="brand" href="#top" aria-label="JUSToC トップへ">
-          <Image src="/justoc-logo-light.png" alt="JUSToC" width={1600} height={269} priority />
-        </a>
-        <nav aria-label="メインナビゲーション">
-          <a href="#services">できること</a>
-          <a href="#works">開発例</a>
-          <a href="#flow">ご相談の流れ</a>
-        </nav>
-        <a className="header-cta" href="#contact">相談してみる</a>
-      </header>
-
-      <section className="hero" id="top">
-        <div className="hero-grid">
-          <div className="hero-copy">
-            <h1>その仕事、<br /><em>もっとシンプルに。</em></h1>
-            <p className="hero-lead">
-              紙や表計算ソフトへの転記、写真整理、在庫確認、勤怠集計。
-              毎日の手間を、AIと使いやすいシステムで減らします。
-            </p>
-            <div className="hero-actions">
-              <a className="button button-primary" href="#contact">まずは相談してみる <span>→</span></a>
-              <a className="button button-secondary" href="#works">開発例を見る</a>
-            </div>
-            <p className="hero-note">まだ構想がまとまっていなくても大丈夫です。</p>
-          </div>
-          <div className="hero-visual" aria-label="業務の悩みを整理し、使いやすい仕組みに変えるイメージ">
-            <div className="visual-panel">
-              <p>YOUR WORKFLOW</p>
-              <div className="visual-line"><span>手作業・転記</span><i>01</i></div>
-              <div className="visual-line"><span>情報の散在</span><i>02</i></div>
-              <div className="visual-line active"><span>JUST FIT SYSTEM</span><i>03</i></div>
-            </div>
-            <div className="visual-badge"><b>AI</b><span>×</span><b>現場</b></div>
-          </div>
-        </div>
-        <div className="hero-bottom">
-          <span>AI CONSULTING</span><span>WORKFLOW DESIGN</span><span>WEB SYSTEM</span><span>TOYAMA</span>
-        </div>
+      <section className="hero-image-section" id="top" aria-label="JUSToC ファーストビュー">
+        <Image
+          className="hero-image"
+          src="/justoc-first-view.png"
+          alt="AIとクリエイティブで、ビジネスを前へ。JUSToC"
+          width={1672}
+          height={941}
+          priority
+          unoptimized
+        />
       </section>
 
       <section className="section problems" aria-labelledby="problems-title">

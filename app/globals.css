@@ -6,6 +6,8 @@ html { scroll-behavior: smooth; }
 body { margin:0; background:#fff; color:var(--ink); font-family:Arial,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; }
 main { background:#353638 url('/palm-accent.jpg') center top/860px auto repeat; }
 a { color:inherit; text-decoration:none; }
+.hero-image-section { width:100%; background:#000; line-height:0; overflow:hidden; }
+.hero-image { display:block; width:100%; height:auto; }
 .site-header { position:absolute; z-index:10; top:0; left:50%; width:min(1180px,calc(100% - 48px)); height:88px; transform:translateX(-50%); display:flex; align-items:center; gap:42px; color:#fff; border-bottom:1px solid rgba(255,255,255,.18); }
 .brand { display:flex; align-items:center; }
 .brand img { width:145px; height:auto; display:block; }
