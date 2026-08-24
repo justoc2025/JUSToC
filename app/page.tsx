@@ -11,7 +11,7 @@ export default function Home() {
     <main className="fv-page">
       <section className="fv" id="top" aria-labelledby="fv-title">
         <div className="fv-pattern" aria-hidden="true" />
-        <Image className="fv-art" src="/justoc-hero-art.png" alt="JUSToCの立体的な矢印シンボル" width={772} height={780} priority unoptimized />
+        <Image className="fv-art" src="/justoc-hero-art.png" alt="JUSToCの立体的な矢印シンボル" width={732} height={780} priority unoptimized />
 
         <header className="fv-header">
           <a className="fv-logo" href="#top" aria-label="JUSToC トップへ">
