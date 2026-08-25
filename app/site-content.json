@@ -1,0 +1,37 @@
+{
+  "metadata": {
+    "title": "JUSToC｜AIとクリエイティブで、ビジネスを前へ。",
+    "description": "AIとクリエイティブで、ビジネスを前へ。Just for your results — JUSToC。",
+    "ogAlt": "JUSToC｜AIとクリエイティブで、ビジネスを前へ。"
+  },
+  "hero": {
+    "heading": "A Iとクリエイティブで、ビジネスを前へ。",
+    "image": "/justoc-object-band-smoothed.png",
+    "imageAlt": "JUSToC。A Iとクリエイティブで、ビジネスを前へ。",
+    "logoLabel": "JUSToC トップへ",
+    "navigation": [
+      { "id": "service", "label": "Service", "href": "#service" },
+      { "id": "about", "label": "About", "href": "#about" },
+      { "id": "contact", "label": "Contact", "href": "mailto:contact@justoc.jp?subject=お問い合わせ" }
+    ],
+    "consult": { "label": "無料相談", "href": "mailto:contact@justoc.jp?subject=無料相談のお問い合わせ" },
+    "viewService": { "label": "サービスを見る", "href": "#service" }
+  },
+  "about": {
+    "kicker": "About JUSToC",
+    "title": "JUSToCに込めた、",
+    "titleAccent": "5つのC",
+    "tabLabel": "JUSToCの5つの価値観",
+    "logo": "/justoc-wordmark.png",
+    "logoAlt": "JUSToC",
+    "logoCaption": "Credibility · Commitment · Creativity · Connection · Contribution",
+    "values": [
+      { "en": "Credibility", "ja": "信頼", "text": "誠実な仕事と積み重ねによって、信頼される存在であり続ける。" },
+      { "en": "Commitment", "ja": "献身", "text": "目の前の相手に真摯に向き合い、成果のために力を尽くす。" },
+      { "en": "Creativity", "ja": "創造", "text": "既成概念にとらわれず、新しい発想と技術で価値を生み出す。" },
+      { "en": "Connection", "ja": "つながり", "text": "人と人、企業とお客様、想いと未来をつなぐ。" },
+      { "en": "Contribution", "ja": "貢献", "text": "私たちの仕事を通して、人と企業の成長に貢献する。" }
+    ],
+    "summary": "信頼を起点に、人と企業の成長に貢献する。"
+  }
+}

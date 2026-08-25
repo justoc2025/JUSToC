@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { headers } from "next/headers";
 import "./globals.css";
+import siteContent from "./site-content.json";
 
-const title = "JUSToC｜AIとクリエイティブで、ビジネスを前へ。";
-const description = "AIとクリエイティブで、ビジネスを前へ。Just for your results — JUSToC。";
+const { title, description, ogAlt } = siteContent.metadata;
 
 export async function generateMetadata(): Promise<Metadata> {
   const requestHeaders = await headers();
@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title, description,
     icons: { icon: "/favicon.png", shortcut: "/favicon.png" },
-    openGraph: { title, description, type: "website", locale: "ja_JP", images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "JUSToC｜AIとクリエイティブで、ビジネスを前へ。" }] },
+    openGraph: { title, description, type: "website", locale: "ja_JP", images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: ogAlt }] },
     twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },
   };
 }
