@@ -33,5 +33,48 @@
       { "en": "Contribution", "ja": "貢献", "text": "私たちの仕事を通して、人と企業の成長に貢献する。" }
     ],
     "summary": "信頼を起点に、人と企業の成長に貢献する。"
+  },
+  "service": {
+    "title": "業務を、もっとシンプルに。",
+    "description": [
+      "JUSToCは、AIとクリエイティブの力で、",
+      "日々の「面倒」な作業を仕組みで解決する業務効率化システムを開発しています。",
+      "お客様の課題をヒアリングし、最適なシステムをオーダーメイドでご提案します。"
+    ],
+    "systemsKicker": "OUR SYSTEMS",
+    "systemsTitle": "業務効率化システム開発事例",
+    "featured": {
+      "category": "AI × 写真管理",
+      "title": "現場写真管理システム",
+      "description": ["写真をアップロードするだけで、AIが内容を解析・分類。", "現場ごとの写真管理・検索・記録作成を効率化し、", "作業時間を大幅に削減します。"],
+      "image": "/justoc-first-view.png",
+      "imageAlt": "現場写真管理システムの仮画面",
+      "features": [
+        { "title": "アップロード", "icon": "upload", "description": "写真をまとめてアップロード" },
+        { "title": "AI解析・分類", "icon": "ai", "description": "AIが自動で内容を解析・分類" },
+        { "title": "台帳・資料作成", "icon": "document", "description": "台帳や報告書を自動で作成" }
+      ]
+    },
+    "cards": [
+      { "category": "勤怠 × 給与計算", "title": "勤怠管理システム", "description": ["出退勤の打刻から給与計算、", "給与明細の作成までを自動化。", "手作業によるミスや工数を削減します。"], "image": "/justoc-first-view.png", "imageAlt": "勤怠管理システムの仮画面" },
+      { "category": "タスク × 進捗管理", "title": "タスク管理システム", "description": ["タスクの割り当てや進捗を可視化し、", "チームの連携と生産性を向上。", "プロジェクトの遅延を防ぎます。"], "image": "/justoc-first-view.png", "imageAlt": "タスク管理システムの仮画面" },
+      { "category": "データ × 自動化", "title": "データ自動集計システム", "description": ["各種データを自動で収集・集計。", "レポート作成や分析の時間を削減し、", "意思決定をスピードアップします。"], "image": "/justoc-first-view.png", "imageAlt": "データ自動集計システムの仮画面" }
+    ],
+    "flow": {
+      "title": "開発の流れ",
+      "steps": [
+        { "number": "01", "title": "ヒアリング", "icon": "chat", "description": "業務内容や課題を詳しくお聞きします。" },
+        { "number": "02", "title": "ご提案・設計", "icon": "edit", "description": "最適なシステムの構成や機能をご提案します。" },
+        { "number": "03", "title": "開発・テスト", "icon": "code", "description": "設計に基づき開発し、テストで品質を確認します。" },
+        { "number": "04", "title": "導入・サポート", "icon": "support", "description": "導入後も継続的にサポートし、改善・運用を支援します。" }
+      ]
+    },
+    "cta": {
+      "headline": "御社だけのシステムを、オーダーメイドで。",
+      "description": "業種・業務に合わせた最適なシステムで、ビジネスの成長を支援します。",
+      "prompt": "まずはお気軽にご相談ください。",
+      "label": "無料相談する",
+      "href": "mailto:contact@justoc.jp?subject=無料相談のお問い合わせ"
+    }
   }
 }

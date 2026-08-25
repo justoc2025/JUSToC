@@ -1,5 +1,6 @@
 import Image from "next/image";
 import AboutSection from "./AboutSection";
+import ServiceSection from "./ServiceSection";
 import siteContent from "./site-content.json";
 
 export default function Home() {
@@ -18,9 +19,9 @@ export default function Home() {
           <a className="hotspot hotspot-consult" href={siteContent.hero.consult.href}><span>{siteContent.hero.consult.label}</span></a>
           <a className="hotspot hotspot-view-service" href={siteContent.hero.viewService.href}>{siteContent.hero.viewService.label} <span aria-hidden="true">→</span></a>
         </div>
-        <div id="service" className="anchor-target" aria-hidden="true" />
       </section>
       <AboutSection />
+      <ServiceSection />
     </main>
   );
 }
