@@ -1,41 +1,25 @@
-import type { Metadata } from "next";
 import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "JUSToC｜AIとクリエイティブで、ビジネスを前へ。",
-  description: "AIとクリエイティブで、ビジネスを前へ。JUSToCの公式Webサイトです。",
-};
+import AboutSection from "./AboutSection";
 
 export default function Home() {
   return (
     <main className="fv-page">
       <section className="fv" id="top" aria-labelledby="fv-title">
-        <div className="fv-pattern" aria-hidden="true" />
-        <Image className="fv-scene" src="/justoc-object-band.png" alt="ライトグレーの帯に置かれたJUSToCの立体的な矢印シンボル" width={1672} height={941} priority unoptimized />
-
-        <header className="fv-header">
-          <a className="fv-logo" href="#top" aria-label="JUSToC トップへ">
-            <Image src="/justoc-wordmark.png" alt="JUSToC" width={566} height={95} priority unoptimized />
-          </a>
-          <nav className="fv-nav" aria-label="メインナビゲーション">
-            <a href="#service">Service</a>
-            <a href="#about">About</a>
-            <a href="mailto:contact@justoc.jp">Contact</a>
+        <h1 id="fv-title" className="sr-only">A Iとクリエイティブで、ビジネスを前へ。</h1>
+        <div className="fv-canvas">
+          <Image className="fv-art" src="/justoc-object-band-smoothed.png" alt="JUSToC。A Iとクリエイティブで、ビジネスを前へ。" width={1672} height={941} priority unoptimized />
+          <a className="hotspot hotspot-logo" href="#top" aria-label="JUSToC トップへ" />
+          <nav aria-label="メインナビゲーション">
+            <a className="hotspot hotspot-nav hotspot-service" href="#service">Service</a>
+            <a className="hotspot hotspot-nav hotspot-about" href="#about">About</a>
+            <a className="hotspot hotspot-nav hotspot-contact" href="mailto:contact@justoc.jp?subject=お問い合わせ">Contact</a>
           </nav>
-        </header>
-
-        <div className="fv-content">
-          <h1 id="fv-title"><span>A Iとクリエイティブで、</span><span>ビジネスを前へ。</span></h1>
-          <p className="fv-subcopy">~ Just for your results ~</p>
-          <div className="fv-actions">
-            <a className="fv-button" href="mailto:contact@justoc.jp?subject=無料相談のお問い合わせ">無料相談</a>
-            <a className="fv-text-link" href="#service">サービスを見る <span aria-hidden="true">→</span></a>
-          </div>
+          <a className="hotspot hotspot-consult" href="mailto:contact@justoc.jp?subject=無料相談のお問い合わせ"><span>無料相談</span></a>
+          <a className="hotspot hotspot-view-service" href="#service">サービスを見る <span aria-hidden="true">→</span></a>
         </div>
-
         <div id="service" className="anchor-target" aria-hidden="true" />
-        <div id="about" className="anchor-target" aria-hidden="true" />
       </section>
+      <AboutSection />
     </main>
   );
 }
