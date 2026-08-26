@@ -20,8 +20,8 @@ export async function POST(request: Request) {
   let body: Record<string, unknown>;
   try { body = await request.json(); } catch { return Response.json({ error: "入力内容を確認してください。" }, { status: 400 }); }
   if (body.website) return Response.json({ ok: true });
-  const concerns = Array.isArray(body.concerns) ? body.concerns.filter((value): value is string => typeof value === "string") : [];
-  if (!isText(body.name, 100) || !isText(body.email, 254) || concerns.length === 0 || concerns.length > 9 || body.consent !== "on") return Response.json({ error: "必須項目を確認してください。" }, { status: 400 });
+  const concerns = typeof body.concerns === "string" ? [body.concerns] : Array.isArray(body.concerns) ? body.concerns.filter((value): value is string => typeof value === "string") : [];
+  if (!isText(body.name, 100) || !isText(body.email, 254) || concerns.length !== 1 || body.consent !== "on") return Response.json({ error: "必須項目を確認してください。" }, { status: 400 });
   if (!isOptionalText(body.company, 150) || !isOptionalText(body.industry, 100) || !isOptionalText(body.message, 4000) || !isOptionalText(body.requests, 2000)) return Response.json({ error: "入力できる文字数を超えています。" }, { status: 400 });
 
   const email = String(body.email).trim();

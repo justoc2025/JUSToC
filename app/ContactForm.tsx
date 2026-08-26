@@ -6,7 +6,7 @@ import content from "./contact-content.json";
 type Question = {
   number: string;
   name: string;
-  type: "text" | "email" | "textarea" | "checkbox";
+  type: "text" | "email" | "textarea" | "checkbox" | "select";
   title: string;
   required: boolean;
   description?: string;
@@ -55,7 +55,7 @@ export default function ContactForm() {
     setNotice("");
     const form = event.currentTarget;
     const data = new FormData(form);
-    if (data.getAll("concerns").length === 0) {
+    if (!data.get("concerns")) {
       setSucceeded(false);
       setNotice("「どのようなことにお困りですか？」を1つ以上選択してください。");
       setSending(false);
@@ -106,6 +106,11 @@ export default function ContactForm() {
                 <label key={option} className="consult-checkbox"><input type="checkbox" name={question.name} value={option} /><span>{option}</span></label>
               ))}
             </div>
+          ) : question.type === "select" ? (
+            <select name={question.name} required={question.required} defaultValue="">
+              <option value="" disabled>{question.placeholder || "選択してください"}</option>
+              {question.options?.map((option) => <option key={option} value={option}>{option}</option>)}
+            </select>
           ) : question.type === "textarea" ? (
             <textarea name={question.name} rows={question.rows} maxLength={question.maxLength} required={question.required} placeholder={question.placeholder} />
           ) : (
