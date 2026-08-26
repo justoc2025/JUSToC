@@ -31,11 +31,12 @@ type FieldProps = {
 function Field({ number, title, required = false, description, children }: FieldProps) {
   return (
     <fieldset className="consult-field">
-      <legend>
+      <legend className="sr-only">{title}{required ? "（必須）" : "（任意）"}</legend>
+      <div className="consult-field-title">
         <span className="consult-number">{number}</span>
         <span>{title}</span>
         <em className={required ? "is-required" : "is-optional"}>{required ? "必須" : "任意"}</em>
-      </legend>
+      </div>
       {description && <p className="consult-field-description">{description}</p>}
       {children}
     </fieldset>
