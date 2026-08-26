@@ -149,7 +149,7 @@ a { color:inherit; text-decoration:none; }
 .consult-status.is-ready { color:#2c805b; }
 .consult-status.is-ready span { background:#31a66f; box-shadow:0 0 0 4px rgba(49,166,111,.12); }
 .honeypot { position:absolute!important; left:-10000px!important; width:1px!important; height:1px!important; opacity:0!important; }
-.consult-field { min-width:0; margin:0; padding:32px 4px 16px; border:0; border-bottom:1px solid #e7ebf1; }
+.consult-field { min-width:0; margin:0; padding:26px 4px; border:0; border-bottom:1px solid #e7ebf1; }
 .consult-field-title { display:flex; align-items:center; gap:12px; width:100%; color:#161a21; font-size:17px; font-weight:700; line-height:1.5; }
 .consult-number { display:grid; place-items:center; flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:#3574cc; color:#fff; font-size:12px; }
 .consult-field-title em { margin-left:4px; padding:3px 6px; border-radius:3px; font-size:10px; font-style:normal; font-weight:700; }
@@ -222,7 +222,7 @@ a { color:inherit; text-decoration:none; }
   .consult-panel-heading { display:block; }
   .consult-panel-heading p { font-size:20px; }
   .consult-panel-heading span { display:block; margin-top:8px; }
-  .consult-field { padding:29px 0 15px; }
+  .consult-field { padding:23px 0; }
   .consult-field-title { align-items:flex-start; font-size:16px; line-height:1.55; }
   .consult-field-title em { margin-top:2px; white-space:nowrap; }
   .consult-checkbox-grid { grid-template-columns:1fr; }
