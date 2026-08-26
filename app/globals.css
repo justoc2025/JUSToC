@@ -119,6 +119,68 @@ a { color:inherit; text-decoration:none; }
 .service-cta-action a { display:block; margin-top:16px; padding:17px 42px; border:1px solid #f7f7f4; color:#f7f7f4; text-align:center; font-size:clamp(14px,1.15vw,18px); letter-spacing:.08em; transition:background .25s,color .25s,transform .25s; }
 .service-cta-action a:hover,.service-cta-action a:focus-visible { background:#f7f7f4; color:#050505; transform:translateY(-2px); outline:none; }
 
+.consult-section { position:relative; isolation:isolate; padding:clamp(70px,7vw,120px) clamp(20px,4vw,72px); background:#f5f7fb; color:#101319; font-family:"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif; }
+.consult-page { min-height:100svh; background:#080a0e; }
+.consult-section::before { content:""; position:absolute; z-index:-1; inset:0; background:radial-gradient(circle at 0 100%,rgba(8,104,255,.09),transparent 35%),linear-gradient(135deg,rgba(255,255,255,.96),rgba(242,246,252,.96)); }
+.consult-shell { display:grid; grid-template-columns:minmax(280px,.72fr) minmax(0,1.55fr); width:min(100%,1480px); margin:0 auto; overflow:hidden; border:1px solid rgba(16,19,25,.1); border-radius:18px; background:#fff; box-shadow:0 30px 90px rgba(23,45,84,.12); }
+.consult-intro { position:relative; padding:clamp(40px,4.5vw,74px) clamp(30px,3.7vw,60px); overflow:hidden; border-right:1px solid #e3e8f0; background:linear-gradient(155deg,#fbfcff 0%,#f5f8fe 64%,#edf4ff 100%); }
+.consult-intro::after { content:""; position:absolute; left:-28%; right:-20%; bottom:-13%; height:42%; border-radius:50%; background:repeating-radial-gradient(ellipse at center,transparent 0 13px,rgba(8,104,255,.1) 14px 15px); opacity:.65; transform:rotate(-7deg); }
+.consult-wordmark { display:block; width:min(100%,190px); }
+.consult-wordmark img { display:block; width:100%; height:auto; filter:brightness(0); }
+.consult-kicker { margin:13px 0 48px; color:#657080; font-size:11px; letter-spacing:.2em; }
+.consult-form-label { margin:-40px 0 46px; color:#657080; font-size:12px; letter-spacing:.06em; }
+.consult-intro h1 { margin:0; font-size:clamp(25px,2.35vw,39px); line-height:1.55; letter-spacing:.035em; }
+.consult-intro h1 em { color:#3474d4; font-style:normal; }
+.consult-lead { margin:38px 0 0; color:#343b46; font-size:14px; line-height:2; }
+.consult-lead + .consult-lead { margin-top:22px; }
+.consult-services { position:relative; z-index:1; display:grid; gap:29px; margin-top:64px; }
+.consult-services article { display:grid; grid-template-columns:46px 1fr; gap:15px; align-items:start; }
+.consult-services article > span { display:grid; place-items:center; width:44px; height:44px; border:1.5px solid #2870d8; border-radius:10px; color:#2870d8; font:700 17px/1 sans-serif; }
+.consult-services h2 { margin:1px 0 5px; font-size:14px; }
+.consult-services p { margin:0; color:#4f5967; font-size:12px; line-height:1.65; }
+.consult-panel { min-width:0; padding:clamp(30px,3vw,50px); }
+.consult-panel-heading { display:flex; align-items:end; justify-content:space-between; gap:20px; padding:0 4px 24px; border-bottom:1px solid #e7ebf1; }
+.consult-panel-heading p { margin:0; font-size:clamp(21px,2vw,31px); font-weight:700; letter-spacing:.04em; }
+.consult-panel-heading span { color:#707887; font-size:12px; white-space:nowrap; }
+.consult-form { margin-top:10px; }
+.consult-status { display:flex; align-items:center; gap:8px; width:max-content; margin:20px 0 0 auto; color:#8b6270; font-size:12px; }
+.consult-status span { width:8px; height:8px; border-radius:50%; background:#ad7588; box-shadow:0 0 0 4px rgba(173,117,136,.12); }
+.consult-status.is-ready { color:#2c805b; }
+.consult-status.is-ready span { background:#31a66f; box-shadow:0 0 0 4px rgba(49,166,111,.12); }
+.honeypot { position:absolute!important; left:-10000px!important; width:1px!important; height:1px!important; opacity:0!important; }
+.consult-field { min-width:0; margin:0; padding:27px 4px 30px; border:0; border-bottom:1px solid #e7ebf1; }
+.consult-field legend { display:flex; align-items:center; gap:11px; width:100%; padding:0; color:#161a21; font-size:15px; font-weight:700; }
+.consult-number { display:grid; place-items:center; flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:#3574cc; color:#fff; font-size:12px; }
+.consult-field legend em { margin-left:4px; padding:3px 6px; border-radius:3px; font-size:10px; font-style:normal; font-weight:700; }
+.consult-field legend .is-required { color:#2667c3; background:#edf4ff; }
+.consult-field legend .is-optional { color:#7d8490; background:#f1f3f6; }
+.consult-field-description { margin:13px 0 14px; color:#4f5763; font-size:12px; line-height:1.75; }
+.consult-field input:not([type="checkbox"]),.consult-field textarea { width:100%; margin-top:14px; padding:15px 16px; border:1px solid #cbd2dc; border-radius:7px; outline:0; background:#fff; color:#171a20; font:inherit; font-size:14px; transition:border-color .2s,box-shadow .2s; }
+.consult-field-description + input,.consult-field-description + textarea { margin-top:0; }
+.consult-field input::placeholder,.consult-field textarea::placeholder { color:#a4a9b2; }
+.consult-field textarea { resize:vertical; line-height:1.7; }
+.consult-field input:focus,.consult-field textarea:focus { border-color:#3477d8; box-shadow:0 0 0 3px rgba(52,119,216,.12); }
+.consult-checkbox-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 14px; margin-top:17px; }
+.consult-checkbox { display:flex; align-items:flex-start; gap:9px; padding:11px 12px; border:1px solid #dce1e8; border-radius:7px; color:#343a44; font-size:12px; line-height:1.55; cursor:pointer; transition:border-color .2s,background .2s; }
+.consult-checkbox:hover { border-color:#77a1dc; background:#f7faff; }
+.consult-checkbox input { flex:0 0 auto; width:16px; height:16px; margin:1px 0 0; accent-color:#286fcf; }
+.consult-consent { display:flex; align-items:flex-start; justify-content:center; gap:10px; margin:28px 0; color:#4a5260; font-size:12px; line-height:1.6; cursor:pointer; }
+.consult-consent input { width:17px; height:17px; margin:0; accent-color:#286fcf; }
+.consult-assurance { display:flex; align-items:center; gap:18px; padding:20px 24px; border-radius:7px; background:linear-gradient(90deg,#edf5ff,#f3f7fd); }
+.consult-assurance > span { display:grid; place-items:center; flex:0 0 auto; width:42px; height:42px; border:2px solid #3c77c8; border-radius:50%; color:#3c77c8; font-size:22px; }
+.consult-assurance p { margin:0; color:#3d4653; font-size:12px; line-height:1.7; }
+.consult-assurance strong { display:block; color:#19202a; font-size:14px; }
+.consult-submit { display:flex; align-items:center; justify-content:center; gap:18px; width:100%; margin-top:14px; padding:19px 24px; border:0; border-radius:7px; background:#080b10; color:#fff; font:700 16px/1.3 inherit; letter-spacing:.08em; cursor:pointer; box-shadow:0 8px 22px rgba(8,11,16,.18); transition:transform .2s,background .2s; }
+.consult-submit:hover:not(:disabled),.consult-submit:focus-visible:not(:disabled) { background:#145ebd; transform:translateY(-2px); }
+.consult-submit:disabled { cursor:not-allowed; opacity:.55; }
+.consult-submit span { color:#70a6ef; }
+.consult-notice { margin:16px 0 0; padding:14px 16px; border-radius:6px; text-align:center; font-size:13px; line-height:1.6; }
+.consult-notice.is-success { color:#14613f; background:#eaf8f1; }
+.consult-notice.is-error { color:#8b3141; background:#fff0f2; }
+.consult-privacy,.consult-fallback { margin:18px 0 0; color:#7a818d; text-align:center; font-size:10px; line-height:1.7; }
+.consult-fallback { margin-top:6px; }
+.consult-fallback a { color:#2d6fc9; text-decoration:underline; }
+
 @media (max-width:1300px) {
   .service-section { padding:74px 20px 84px; }
   .service-inner { width:1120px; max-width:none; zoom:min(1,calc((100vw - 40px) / 1120px)); }
@@ -149,6 +211,23 @@ a { color:inherit; text-decoration:none; }
   .value-summary-list div { gap:8px; }
   .value-summary-list span { width:42px; height:42px; font-size:30px; }
   .value-summary-list strong { font-size:11px; letter-spacing:.03em; white-space:nowrap; }
+  .consult-section { padding:48px 14px; }
+  .consult-shell { display:block; border-radius:12px; }
+  .consult-intro { padding:38px 26px 48px; border-right:0; border-bottom:1px solid #e3e8f0; }
+  .consult-kicker { margin-bottom:32px; }
+  .consult-intro h1 { font-size:27px; }
+  .consult-lead { margin-top:26px; }
+  .consult-services { margin-top:40px; }
+  .consult-panel { padding:28px 18px 34px; }
+  .consult-panel-heading { display:block; }
+  .consult-panel-heading p { font-size:20px; }
+  .consult-panel-heading span { display:block; margin-top:8px; }
+  .consult-field { padding:25px 0 28px; }
+  .consult-field legend { align-items:flex-start; font-size:14px; line-height:1.65; }
+  .consult-field legend em { margin-top:2px; white-space:nowrap; }
+  .consult-checkbox-grid { grid-template-columns:1fr; }
+  .consult-assurance { align-items:flex-start; padding:17px; }
+  .consult-submit { font-size:14px; }
 }
 
 @media (prefers-reduced-motion:reduce) {

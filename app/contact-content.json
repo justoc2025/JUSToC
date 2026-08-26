@@ -1,0 +1,41 @@
+{
+  "metadata": {
+    "title": "無料相談｜JUSToC",
+    "description": "業務効率化・システム開発・AI活用など、JUSToCへの無料相談はこちらから。"
+  },
+  "intro": {
+    "kicker": "FREE CONSULTATION",
+    "formLabel": "無料相談フォーム",
+    "titleBefore": "業務の「面倒」を、",
+    "titleAccent": "仕組み",
+    "titleAfter": "で解決します。",
+    "paragraphs": [
+      "業務効率化・システム開発を中心に、動画制作・LINE構築・デザイン制作などもトータルでサポートしています。",
+      "「こんなこと相談してもいいのかな？」という段階でも大丈夫です。お気軽にご相談ください。"
+    ],
+    "services": [
+      { "icon": "⌘", "title": "業務効率化・システム開発", "description": "AI活用・自動化・管理システムなど、業務をもっとシンプルに。" },
+      { "icon": "▶", "title": "動画制作・編集", "description": "YouTube・SNS・PR動画など、目的に合わせて制作します。" },
+      { "icon": "◎", "title": "LINE構築・デザイン", "description": "公式LINE構築や各種デザインまで、伝わる仕組みをつくります。" }
+    ]
+  },
+  "form": {
+    "title": "JUSToC 無料相談フォーム",
+    "timeEstimate": "入力時間の目安：約3分",
+    "questions": [
+      { "number": "1", "name": "name", "type": "text", "title": "お名前", "required": true, "placeholder": "例）山田 太郎", "maxLength": 100, "autoComplete": "name" },
+      { "number": "2", "name": "company", "type": "text", "title": "会社名・屋号", "required": false, "placeholder": "例）株式会社JUSToC", "maxLength": 150, "autoComplete": "organization" },
+      { "number": "3", "name": "email", "type": "email", "title": "メールアドレス", "required": true, "placeholder": "例）example@justoc.co.jp", "maxLength": 254, "autoComplete": "email" },
+      { "number": "4", "name": "industry", "type": "text", "title": "業種", "required": false, "description": "例：建設業、製造業、飲食業、小売業、サービス業など", "placeholder": "業種をご入力ください", "maxLength": 100 },
+      { "number": "5", "name": "concerns", "type": "checkbox", "title": "どのようなことにお困りですか？", "required": true, "description": "あてはまるものをすべてお選びください。", "options": ["日々の入力・転記作業を減らしたい", "写真や書類の管理を効率化したい", "勤怠・給与管理を効率化したい", "データ集計・資料作成を自動化したい", "顧客・案件・タスクなどを管理したい", "AIを業務に活用したい", "自社専用のシステムを作りたい", "何を効率化できるのか相談したい", "その他（動画制作・LINE構築・デザインなど）"] },
+      { "number": "6", "name": "message", "type": "textarea", "title": "現在のお困りごと・実現したいことを教えてください", "required": false, "description": "現在時間がかかっている作業や、「こうなったら楽になる」「こんなことができたら」ということがあれば、ご自由にご記入ください。まだ具体的に決まっていなくても大丈夫です。", "placeholder": "例）毎月の集計作業に時間がかかっているので、自動化したい。現場の写真管理をもっと簡単にしたい。など", "maxLength": 4000, "rows": 7 },
+      { "number": "7", "name": "requests", "type": "textarea", "title": "その他・ご要望", "required": false, "description": "ご希望の連絡方法や時間帯、その他ご要望などがあればご記入ください。", "placeholder": "例）平日の10時〜18時に連絡希望です。", "maxLength": 2000, "rows": 4 }
+    ],
+    "consent": "入力した個人情報を、お問い合わせへの対応に利用することに同意します。",
+    "assuranceTitle": "内容を確認後、担当者よりご連絡いたします。",
+    "assuranceText": "通常1〜2営業日以内にご返信いたします。まずはお気軽にご相談ください。",
+    "submitLabel": "無料相談を送信する",
+    "confirmationMessage": "お問い合わせありがとうございます。内容を確認のうえ、JUSToCよりご連絡いたします。",
+    "privacy": "ご入力いただいた個人情報は、お問い合わせへの対応のみに利用し、適切に管理いたします。"
+  }
+}

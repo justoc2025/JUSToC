@@ -1,47 +1,133 @@
 "use client";
 
 import { useState } from "react";
+import content from "./contact-content.json";
+
+type Question = {
+  number: string;
+  name: string;
+  type: "text" | "email" | "textarea" | "checkbox";
+  title: string;
+  required: boolean;
+  description?: string;
+  placeholder?: string;
+  maxLength?: number;
+  autoComplete?: string;
+  rows?: number;
+  options?: string[];
+};
+
+const formContent = content.form;
+const questions = formContent.questions as Question[];
+
+type FieldProps = {
+  number: string;
+  title: string;
+  required?: boolean;
+  description?: string;
+  children: React.ReactNode;
+};
+
+function Field({ number, title, required = false, description, children }: FieldProps) {
+  return (
+    <fieldset className="consult-field">
+      <legend>
+        <span className="consult-number">{number}</span>
+        <span>{title}</span>
+        <em className={required ? "is-required" : "is-optional"}>{required ? "必須" : "任意"}</em>
+      </legend>
+      {description && <p className="consult-field-description">{description}</p>}
+      {children}
+    </fieldset>
+  );
+}
 
 export default function ContactForm() {
   const enabled = process.env.NEXT_PUBLIC_CONTACT_FORM_ENABLED === "true";
   const [notice, setNotice] = useState("");
   const [sending, setSending] = useState(false);
+  const [succeeded, setSucceeded] = useState(false);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!enabled) return;
+    if (!enabled || sending) return;
     setSending(true);
     setNotice("");
     const form = event.currentTarget;
-    const payload = Object.fromEntries(new FormData(form));
+    const data = new FormData(form);
+    if (data.getAll("concerns").length === 0) {
+      setSucceeded(false);
+      setNotice("「どのようなことにお困りですか？」を1つ以上選択してください。");
+      setSending(false);
+      form.querySelector<HTMLInputElement>('input[name="concerns"]')?.focus();
+      return;
+    }
+    const payload = {
+      name: data.get("name"),
+      company: data.get("company"),
+      email: data.get("email"),
+      industry: data.get("industry"),
+      concerns: data.getAll("concerns"),
+      message: data.get("message"),
+      requests: data.get("requests"),
+      consent: data.get("consent"),
+      website: data.get("website"),
+    };
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: { "content-type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!response.ok) throw new Error("send failed");
+      const result = await response.json().catch(() => null);
+      if (!response.ok) throw new Error(result?.error || "送信に失敗しました。");
       form.reset();
-      setNotice("お問い合わせを受け付けました。内容を確認のうえご連絡します。");
-    } catch {
-      setNotice("送信できませんでした。時間をおいて再度お試しいただくか、メールをご利用ください。");
+      setSucceeded(true);
+      setNotice(formContent.confirmationMessage);
+    } catch (error) {
+      setSucceeded(false);
+      setNotice(error instanceof Error ? error.message : "送信できませんでした。時間をおいて再度お試しください。");
     } finally {
       setSending(false);
     }
   }
 
   return (
-    <form className="contact-form" onSubmit={handleSubmit} noValidate>
-      <div className={`form-status ${enabled ? "ready" : ""}`}><span /> {enabled ? "お問い合わせ受付中" : "フォーム準備中"}</div>
+    <form className="consult-form" onSubmit={handleSubmit}>
       <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" />
-      <div className="field-row"><label>お名前 <b>必須</b><input name="name" autoComplete="name" required /></label><label>会社名・屋号 <small>任意</small><input name="company" autoComplete="organization" /></label></div>
-      <label>メールアドレス <b>必須</b><input type="email" name="email" autoComplete="email" required /></label>
-      <label>相談したい内容 <b>必須</b><select name="category" required defaultValue=""><option value="" disabled>選択してください</option><option>AI活用相談</option><option>業務効率化・システム開発</option><option>既存業務の改善相談</option><option>その他</option></select></label>
-      <label>お問い合わせ内容 <b>必須</b><textarea name="message" rows={6} required placeholder="現在のお困りごとや、実現したいことをご記入ください。" /></label>
-      <label className="consent"><input type="checkbox" name="consent" required /><span>入力した情報をお問い合わせへの対応に利用することに同意します。</span></label>
-      <button type="submit" disabled={!enabled || sending}>{sending ? "送信しています…" : enabled ? "この内容で送信する" : "公開時に受付を開始します"}<span>→</span></button>
-      {notice && <p className="form-notice" role="status">{notice}</p>}
-      <p className="form-fallback">{enabled ? "送信できない場合は" : "公開前のため、現在フォームは送信されません。"} <a href="mailto:contact@justoc.jp">メールで問い合わせる</a></p>
+      <div className={`consult-status ${enabled ? "is-ready" : ""}`}><span /> {enabled ? "無料相談受付中" : "フォーム準備中"}</div>
+
+      {questions.map((question) => (
+        <Field key={question.name} number={question.number} title={question.title} required={question.required} description={question.description}>
+          {question.type === "checkbox" ? (
+            <div className="consult-checkbox-grid">
+              {question.options?.map((option) => (
+                <label key={option} className="consult-checkbox"><input type="checkbox" name={question.name} value={option} /><span>{option}</span></label>
+              ))}
+            </div>
+          ) : question.type === "textarea" ? (
+            <textarea name={question.name} rows={question.rows} maxLength={question.maxLength} required={question.required} placeholder={question.placeholder} />
+          ) : (
+            <input type={question.type} name={question.name} autoComplete={question.autoComplete} required={question.required} maxLength={question.maxLength} placeholder={question.placeholder} />
+          )}
+        </Field>
+      ))}
+
+      <label className="consult-consent">
+        <input type="checkbox" name="consent" required />
+        <span>{formContent.consent}</span>
+      </label>
+      <div className="consult-assurance">
+        <span aria-hidden="true">✓</span>
+        <p><strong>{formContent.assuranceTitle}</strong>{formContent.assuranceText}</p>
+      </div>
+      <button className="consult-submit" type="submit" disabled={!enabled || sending}>
+        {sending ? "送信しています…" : enabled ? formContent.submitLabel : "ただいま準備中です"}<span aria-hidden="true">→</span>
+      </button>
+      {notice && <p className={`consult-notice ${succeeded ? "is-success" : "is-error"}`} role="status">{notice}</p>}
+      <p className="consult-privacy">🔒 {formContent.privacy}</p>
+      <p className="consult-fallback">送信できない場合は <a href="mailto:contact@justoc.jp">contact@justoc.jp</a> までご連絡ください。</p>
     </form>
   );
 }
