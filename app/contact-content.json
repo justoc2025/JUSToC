@@ -14,7 +14,7 @@
     ]
   },
   "form": {
-    "title": "JUSToC 無料相談フォーム",
+    "title": "無料相談フォーム",
     "timeEstimate": "入力時間の目安：約3分",
     "questions": [
       { "number": "1", "name": "name", "type": "text", "title": "お名前", "required": true, "placeholder": "例）山田 太郎", "maxLength": 100, "autoComplete": "name" },
