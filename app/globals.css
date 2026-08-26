@@ -123,18 +123,17 @@ a { color:inherit; text-decoration:none; }
 .consult-page { min-height:100svh; background:#080a0e; }
 .consult-section::before { content:""; position:absolute; z-index:-1; inset:0; background:radial-gradient(circle at 0 100%,rgba(8,104,255,.09),transparent 35%),linear-gradient(135deg,rgba(255,255,255,.96),rgba(242,246,252,.96)); }
 .consult-shell { display:grid; grid-template-columns:minmax(280px,.72fr) minmax(0,1.55fr); width:min(100%,1480px); margin:0 auto; overflow:hidden; border:1px solid rgba(16,19,25,.1); border-radius:18px; background:#fff; box-shadow:0 30px 90px rgba(23,45,84,.12); }
-.consult-intro { position:relative; padding:clamp(40px,4.5vw,74px) clamp(30px,3.7vw,60px); overflow:hidden; border-right:1px solid #e3e8f0; background:linear-gradient(155deg,#fbfcff 0%,#f5f8fe 64%,#edf4ff 100%); }
-.consult-wordmark { display:block; width:min(100%,220px); height:72px; overflow:hidden; }
+.consult-intro { position:relative; z-index:0; isolation:isolate; padding:clamp(40px,4.5vw,74px) clamp(30px,3.7vw,60px); overflow:hidden; border-right:1px solid rgba(255,255,255,.16); background:#050505; color:#f7f7f4; }
+.consult-intro::before { content:""; position:absolute; z-index:-2; inset:0; background:url('/justoc-palms-reference.png') center/cover repeat; opacity:.86; }
+.consult-intro::after { content:""; position:absolute; z-index:-1; inset:0; background:radial-gradient(circle at 50% 38%,rgba(8,15,28,.2),rgba(2,2,2,.52) 76%),linear-gradient(180deg,rgba(5,5,5,.2),rgba(5,5,5,.5)); }
+.consult-wordmark { display:block; width:min(100%,285px); aspect-ratio:566/125; overflow:hidden; }
 .consult-wordmark img { display:block; width:100%; height:100%; object-fit:contain; object-position:center; }
-.consult-kicker { margin:13px 0 48px; color:#657080; font-size:11px; letter-spacing:.2em; }
-.consult-form-label { margin:-40px 0 46px; color:#657080; font-size:12px; letter-spacing:.06em; }
+.consult-form-label { margin:12px 0 48px; color:rgba(255,255,255,.62); font-size:12px; letter-spacing:.1em; }
 .consult-intro h1 { margin:0; font-size:clamp(27px,2.05vw,34px); line-height:1.55; letter-spacing:.025em; }
 .consult-intro h1 span { display:block; white-space:nowrap; }
 .consult-intro h1 em { color:#3474d4; font-style:normal; }
-.consult-lead { margin:38px 0 0; color:#343b46; font-size:14px; line-height:2; }
+.consult-lead { margin:38px 0 0; color:rgba(255,255,255,.84); font-size:14px; line-height:2; }
 .consult-lead + .consult-lead { margin-top:22px; }
-.consult-object { position:absolute; left:0; right:0; bottom:0; height:300px; overflow:hidden; background:#050505; }
-.consult-object img { width:190%; height:100%; object-fit:cover; object-position:84% 54%; transform:translateX(-43%); opacity:.96; }
 .consult-panel { min-width:0; padding:clamp(30px,3vw,50px); }
 .consult-panel-heading { display:flex; align-items:end; justify-content:space-between; gap:20px; padding:0 4px 24px; border-bottom:1px solid #e7ebf1; }
 .consult-panel-heading p { margin:0; font-size:clamp(21px,2vw,31px); font-weight:700; letter-spacing:.04em; }
@@ -145,13 +144,13 @@ a { color:inherit; text-decoration:none; }
 .consult-status.is-ready { color:#2c805b; }
 .consult-status.is-ready span { background:#31a66f; box-shadow:0 0 0 4px rgba(49,166,111,.12); }
 .honeypot { position:absolute!important; left:-10000px!important; width:1px!important; height:1px!important; opacity:0!important; }
-.consult-field { min-width:0; margin:0; padding:27px 4px 30px; border:0; border-bottom:1px solid #e7ebf1; }
-.consult-field legend { display:flex; align-items:center; gap:11px; width:100%; padding:0; color:#161a21; font-size:15px; font-weight:700; }
+.consult-field { min-width:0; margin:0; padding:20px 4px 22px; border:0; border-bottom:1px solid #e7ebf1; }
+.consult-field legend { display:flex; align-items:center; gap:12px; width:100%; padding:0; color:#161a21; font-size:17px; font-weight:700; line-height:1.5; }
 .consult-number { display:grid; place-items:center; flex:0 0 auto; width:25px; height:25px; border-radius:50%; background:#3574cc; color:#fff; font-size:12px; }
 .consult-field legend em { margin-left:4px; padding:3px 6px; border-radius:3px; font-size:10px; font-style:normal; font-weight:700; }
 .consult-field legend .is-required { color:#2667c3; background:#edf4ff; }
 .consult-field legend .is-optional { color:#7d8490; background:#f1f3f6; }
-.consult-field-description { margin:13px 0 14px; color:#4f5763; font-size:12px; line-height:1.75; }
+.consult-field-description { margin:10px 0 11px; color:#4f5763; font-size:12px; line-height:1.65; }
 .consult-field input:not([type="checkbox"]),.consult-field textarea,.consult-field select { width:100%; margin-top:14px; padding:15px 16px; border:1px solid #cbd2dc; border-radius:7px; outline:0; background:#fff; color:#171a20; font:inherit; font-size:14px; transition:border-color .2s,box-shadow .2s; }
 .consult-field-description + input,.consult-field-description + textarea { margin-top:0; }
 .consult-field input::placeholder,.consult-field textarea::placeholder { color:#a4a9b2; }
@@ -211,17 +210,15 @@ a { color:inherit; text-decoration:none; }
   .consult-section { padding:48px 14px; }
   .consult-shell { display:block; border-radius:12px; }
   .consult-intro { padding:38px 26px 48px; border-right:0; border-bottom:1px solid #e3e8f0; }
-  .consult-kicker { margin-bottom:32px; }
   .consult-intro h1 { font-size:27px; }
-  .consult-object { position:relative; height:210px; margin:42px -26px -48px; }
   .consult-lead { margin-top:26px; }
   .consult-services { margin-top:40px; }
   .consult-panel { padding:28px 18px 34px; }
   .consult-panel-heading { display:block; }
   .consult-panel-heading p { font-size:20px; }
   .consult-panel-heading span { display:block; margin-top:8px; }
-  .consult-field { padding:25px 0 28px; }
-  .consult-field legend { align-items:flex-start; font-size:14px; line-height:1.65; }
+  .consult-field { padding:19px 0 21px; }
+  .consult-field legend { align-items:flex-start; font-size:16px; line-height:1.55; }
   .consult-field legend em { margin-top:2px; white-space:nowrap; }
   .consult-checkbox-grid { grid-template-columns:1fr; }
   .consult-assurance { align-items:flex-start; padding:17px; }

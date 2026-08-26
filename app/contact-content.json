@@ -4,7 +4,6 @@
     "description": "業務効率化・システム開発・AI活用など、JUSToCへの無料相談はこちらから。"
   },
   "intro": {
-    "kicker": "FREE CONSULTATION",
     "formLabel": "無料相談フォーム",
     "titleBefore": "業務の「面倒」を、",
     "titleAccent": "仕組み",
@@ -12,8 +11,7 @@
     "paragraphs": [
       "日々の業務に潜む手間や非効率を見つけ、AIやシステムの力で、もっとシンプルに働ける仕組みをご提案します。",
       "「こんなこと相談してもいいのかな？」という段階でも大丈夫です。お気軽にご相談ください。"
-    ],
-    "objectImage": "/justoc-object-band-smoothed.png"
+    ]
   },
   "form": {
     "title": "JUSToC 無料相談フォーム",
