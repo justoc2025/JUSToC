@@ -37,7 +37,7 @@
       { "number": "7", "name": "requests", "type": "textarea", "title": "その他・ご要望", "required": false, "description": "ご希望の連絡方法や時間帯、その他ご要望などがあればご記入ください。", "placeholder": "例）平日の10時〜18時に連絡希望です。", "maxLength": 2000, "rows": 4 }
     ],
     "consent": "入力した個人情報を、お問い合わせへの対応に利用することに同意します。",
-    "assuranceTitle": "内容を確認後、担当者よりご連絡いたします。",
+    "assuranceTitle": "内容を確認後ご連絡いたします。",
     "assuranceText": "通常1〜2営業日以内にご返信いたします。まずはお気軽にご相談ください。",
     "submitLabel": "無料相談を送信する",
     "confirmationMessage": "お問い合わせありがとうございます。内容を確認のうえ、JUSToCよりご連絡いたします。",
