@@ -134,6 +134,11 @@ a { color:inherit; text-decoration:none; }
 .consult-intro h1 em { color:#3474d4; font-style:normal; }
 .consult-lead { margin:38px 0 0; color:rgba(255,255,255,.84); font-size:14px; line-height:2; }
 .consult-lead + .consult-lead { margin-top:22px; }
+.consult-other-services { margin-top:46px; padding-top:26px; border-top:1px solid rgba(255,255,255,.2); }
+.consult-other-services h2 { margin:0; color:#f7f7f4; font-size:17px; font-weight:400; letter-spacing:.06em; }
+.consult-other-services > p { margin:11px 0 0; color:rgba(255,255,255,.64); font-size:11px; line-height:1.8; }
+.consult-other-services ul { display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 0; padding:0; list-style:none; }
+.consult-other-services li { padding:7px 10px; border:1px solid rgba(92,145,255,.48); border-radius:3px; background:rgba(8,104,255,.08); color:rgba(255,255,255,.88); font-size:11px; line-height:1.4; }
 .consult-panel { min-width:0; padding:clamp(30px,3vw,50px); }
 .consult-panel-heading { display:flex; align-items:end; justify-content:space-between; gap:20px; padding:0 4px 24px; border-bottom:1px solid #e7ebf1; }
 .consult-panel-heading p { margin:0; font-size:clamp(21px,2vw,31px); font-weight:700; letter-spacing:.04em; }

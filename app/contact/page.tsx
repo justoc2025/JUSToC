@@ -17,6 +17,13 @@ export default function ContactPage() {
             <p className="consult-form-label">{content.intro.formLabel}</p>
             <h1 id="consult-title"><span>{content.intro.titleBefore}</span><span><em>{content.intro.titleAccent}</em>{content.intro.titleAfter}</span></h1>
             {content.intro.paragraphs.map((paragraph) => <p className="consult-lead" key={paragraph}>{paragraph}</p>)}
+            <div className="consult-other-services" aria-labelledby="other-services-title">
+              <h2 id="other-services-title">{content.intro.otherServices.title}</h2>
+              <p>{content.intro.otherServices.description}</p>
+              <ul>
+                {content.intro.otherServices.items.map((item) => <li key={item}>{item}</li>)}
+              </ul>
+            </div>
           </aside>
           <div className="consult-panel">
             <div className="consult-panel-heading"><p>{content.form.title}</p><span>{content.form.timeEstimate}</span></div>
