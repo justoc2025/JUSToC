@@ -17,7 +17,7 @@ export default function Home() {
             ))}
           </nav>
           <a className="hotspot hotspot-consult" href={siteContent.hero.consult.href}><span>{siteContent.hero.consult.label}</span></a>
-          <a className="hotspot hotspot-view-service" href={siteContent.hero.viewService.href}>{siteContent.hero.viewService.label} <span aria-hidden="true">→</span></a>
+          <a className="hotspot hotspot-view-service" href={siteContent.hero.viewService.href} aria-label={siteContent.hero.viewService.label} />
         </div>
       </section>
       <AboutSection />

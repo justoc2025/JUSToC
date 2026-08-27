@@ -14,7 +14,7 @@ export default function AboutSection() {
     <section className="about-section" id="about" aria-labelledby="about-title">
       <div className="about-inner">
         <header className="about-heading">
-          <p className="about-kicker">{siteContent.about.kicker}</p>
+          <span className="about-background-label" aria-hidden="true">{siteContent.about.backgroundLabel}</span>
           <h2 id="about-title">{siteContent.about.title}<em>{siteContent.about.titleAccent}</em></h2>
           <span className="about-heading-line" aria-hidden="true" />
         </header>
