@@ -63,8 +63,8 @@
     "flow": {
       "title": "開発の流れ",
       "steps": [
-        { "number": "01", "title": "ヒアリング", "icon": "chat", "description": ["業務内容や課題", "を詳しくお聞きします。"] },
-        { "number": "02", "title": "ご提案・設計", "icon": "edit", "description": ["最適なシステムの構成や機能を", "ご提案します。"] },
+        { "number": "01", "title": "ヒアリング", "icon": "chat", "description": ["業務内容や課題を", "詳しくお聞きします。"] },
+        { "number": "02", "title": "ご提案・設計", "icon": "edit", "description": ["最適なシステムの構成や", "機能をご提案します。"] },
         { "number": "03", "title": "開発・テスト", "icon": "code", "description": ["設計に基づき開発し、", "テストで品質を確認します。"] },
         { "number": "04", "title": "導入・サポート", "icon": "support", "description": ["導入後2ヶ月間は無料で", "サポート。"], "note": "期間終了後は、ご希望に応じて月額の運用・改善サポートをご利用いただけます。", "noteDetails": "操作相談・不具合対応・軽微な修正・改善提案を継続して支援します。" }
       ]
