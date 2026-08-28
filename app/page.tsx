@@ -14,6 +14,7 @@ export default function Home() {
             <Image src="/justoc-logo-light.png" alt="" width={1542} height={262} priority unoptimized />
           </div>
           <a className="hotspot hotspot-logo" href="#top" aria-label={siteContent.hero.logoLabel} />
+          <div className="fv-nav-mask" aria-hidden="true" />
           <nav aria-label="メインナビゲーション">
             {siteContent.hero.navigation.map((item) => (
               <a key={item.id} className={`hotspot hotspot-nav hotspot-${item.id}`} href={item.href}>{item.label}</a>
