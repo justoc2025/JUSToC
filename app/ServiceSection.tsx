@@ -22,6 +22,18 @@ function LaptopMockup({ src, alt }: { src: string; alt: string }) {
   );
 }
 
+function ScreenGallery({ examples }: { examples: Array<{ src: string; alt: string }> }) {
+  return (
+    <div className="service-screen-gallery" aria-label="勤怠管理システムの画面例">
+      {examples.map((example) => (
+        <figure key={example.src}>
+          <Image src={example.src} alt={example.alt} width={1280} height={920} unoptimized />
+        </figure>
+      ))}
+    </div>
+  );
+}
+
 export default function ServiceSection() {
   const service = siteContent.service;
 
@@ -40,8 +52,8 @@ export default function ServiceSection() {
             <h3>{service.systemsTitle}</h3>
           </header>
 
-          <article className="service-featured">
-            <LaptopMockup src={service.featured.image} alt={service.featured.imageAlt} />
+          <article className="service-featured service-featured--examples">
+            <ScreenGallery examples={service.featured.examples} />
             <div className="service-featured-copy">
               <h4>{service.featured.title}</h4>
               <p className="service-description">{service.featured.description.map((line) => <span key={line}>{line}</span>)}</p>

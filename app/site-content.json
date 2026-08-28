@@ -49,6 +49,10 @@
       "description": ["出退勤の打刻から勤怠状況の確認、", "勤務時間・時給計算を自動化。", "手作業によるミスや工数を削減します。"],
       "image": "/justoc-first-view.png",
       "imageAlt": "勤怠管理システムの仮画面",
+      "examples": [
+        { "src": "/attendance-dashboard-staff.png", "alt": "勤怠管理システムのスタッフ別一覧画面" },
+        { "src": "/attendance-dashboard-daily.png", "alt": "勤怠管理システムの日別状況一覧画面" }
+      ],
       "features": [
         { "title": "打刻・申請", "icon": "upload", "description": ["出退勤や休暇を", "まとめて管理"] },
         { "title": "勤怠状況の確認", "icon": "ai", "description": ["勤務状況を自動で", "集計・確認"] },
