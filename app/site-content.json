@@ -52,11 +52,11 @@
       "features": [
         { "title": "打刻・申請", "icon": "upload", "description": ["出退勤や休暇を", "まとめて管理"] },
         { "title": "勤怠状況の確認", "icon": "ai", "description": ["勤務状況を自動で", "集計・確認"] },
-        { "title": "時給計算", "icon": "document", "description": ["勤務時間に応じて", "計算を効率化"] }
+        { "title": "時給計算", "icon": "document", "description": ["勤務時間に応じた", "時給を自動計算"] }
       ]
     },
     "cards": [
-      { "category": "AI × 写真管理", "title": "現場写真管理システム", "description": ["写真をアップロードするだけで、AIが内容を解析・分類。", "現場ごとの写真管理・検索・記録作成を効率化し、", "作業時間を大幅に削減します。"], "image": "/justoc-first-view.png", "imageAlt": "現場写真管理システムの仮画面" },
+      { "category": "AI × 写真管理", "title": "現場写真管理システム", "description": ["写真をアップロードするだけで、AIが内容を解析・分類。", "現場ごとの写真管理・記録作成を効率化し、", "作業時間を大幅に削減します。"], "image": "/justoc-first-view.png", "imageAlt": "現場写真管理システムの仮画面" },
       { "category": "タスク × 進捗管理", "title": "タスク管理システム", "description": ["タスクの割り当てや進捗を可視化し、", "チームの連携と生産性を向上。", "プロジェクトの遅延を防ぎます。"], "image": "/justoc-first-view.png", "imageAlt": "タスク管理システムの仮画面" },
       { "category": "データ × 自動化", "title": "データ自動集計システム", "description": ["各種データを自動で収集・集計。", "レポート作成や分析の時間を削減し、", "意思決定をスピードアップします。"], "image": "/justoc-first-view.png", "imageAlt": "データ自動集計システムの仮画面" }
     ],
