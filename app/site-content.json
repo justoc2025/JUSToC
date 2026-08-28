@@ -50,8 +50,8 @@
       "image": "/justoc-first-view.png",
       "imageAlt": "勤怠管理システムの仮画面",
       "examples": [
-        { "src": "/attendance-dashboard-staff.png", "alt": "勤怠管理システムのスタッフ別一覧画面" },
-        { "src": "/attendance-dashboard-daily.png", "alt": "勤怠管理システムの日別状況一覧画面" }
+        { "src": "/attendance-dashboard-daily.png", "alt": "勤怠管理システムの日別状況一覧画面" },
+        { "src": "/attendance-dashboard-staff.png", "alt": "勤怠管理システムのスタッフ別一覧画面" }
       ],
       "features": [
         { "title": "打刻・申請", "icon": "upload", "description": ["出退勤や休暇を", "まとめて管理"] },

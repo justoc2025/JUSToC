@@ -10,6 +10,9 @@ export default function Home() {
         <h1 id="fv-title" className="sr-only">{siteContent.hero.heading}</h1>
         <div className="fv-canvas">
           <Image className="fv-art" src={siteContent.hero.image} alt={siteContent.hero.imageAlt} width={1672} height={941} priority unoptimized />
+          <div className="fv-logo-visual" aria-hidden="true">
+            <Image src="/justoc-logo-light.png" alt="" width={1542} height={262} priority unoptimized />
+          </div>
           <a className="hotspot hotspot-logo" href="#top" aria-label={siteContent.hero.logoLabel} />
           <nav aria-label="メインナビゲーション">
             {siteContent.hero.navigation.map((item) => (
