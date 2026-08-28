@@ -105,6 +105,14 @@ export default function ServiceSection() {
             <div><p>{service.cta.prompt}</p><a href={service.cta.href}>{service.cta.label}</a></div>
           </div>
         </aside>
+
+        <section className="service-other-services" aria-labelledby="other-services-title">
+          <h3 id="other-services-title">{service.otherServices.title}</h3>
+          <p>{service.otherServices.description}</p>
+          <ul>
+            {service.otherServices.items.map((item) => <li key={item}>{item}</li>)}
+          </ul>
+        </section>
       </div>
     </section>
   );

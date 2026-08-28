@@ -75,6 +75,11 @@
       "prompt": "まずはお気軽にご相談ください。",
       "label": "無料相談する",
       "href": "/contact"
+    },
+    "otherServices": {
+      "title": "こんなこともご相談いただけます",
+      "description": "業務効率化やシステム開発以外のご相談も承っています。",
+      "items": ["動画編集", "動画デザイン", "撮影", "YouTube・SNS運用代行", "SNSデザイン", "LINE構築"]
     }
   }
 }
