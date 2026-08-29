@@ -27,7 +27,9 @@ function ScreenGallery({ examples }: { examples: Array<{ src: string; alt: strin
     <div className="service-screen-gallery" aria-label="勤怠管理システムの画面例">
       {examples.map((example) => (
         <figure key={example.src} tabIndex={0}>
-          <Image src={example.src} alt={example.alt} width={1280} height={920} unoptimized />
+          <div className="service-screen-frame">
+            <Image src={example.src} alt={example.alt} width={1280} height={920} unoptimized />
+          </div>
         </figure>
       ))}
     </div>
