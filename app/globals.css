@@ -243,16 +243,16 @@ a { color:inherit; text-decoration:none; }
   .value-summary-list strong { font-size:11px; letter-spacing:.03em; white-space:nowrap; }
   .consult-section { padding:48px 14px; }
   .consult-shell { display:block; border-radius:12px; }
-  .consult-intro { padding:26px 26px 28px; border-right:0; border-bottom:1px solid #e3e8f0; }
-  .consult-wordmark { width:min(100%,230px); }
-  .consult-intro h1 { margin-top:28px; font-size:24px; line-height:1.4; }
-  .consult-lead { margin-top:18px; font-size:12px; line-height:1.75; }
-  .consult-lead + .consult-lead { margin-top:22px; }
-  .consult-other-services { margin-top:30px; padding-top:20px; }
-  .consult-other-services h2 { font-size:13px; }
-  .consult-other-services > p { margin-top:7px; font-size:10px; line-height:1.6; }
-  .consult-other-services ul { gap:5px 10px; margin-top:10px; }
-  .consult-other-services li { font-size:9px; }
+  .consult-intro { padding:18px 24px 20px; border-right:0; border-bottom:1px solid #e3e8f0; }
+  .consult-wordmark { width:min(100%,190px); }
+  .consult-intro h1 { margin-top:18px; font-size:22px; line-height:1.28; }
+  .consult-lead { margin-top:12px; font-size:11px; line-height:1.55; }
+  .consult-lead + .consult-lead { margin-top:14px; }
+  .consult-other-services { margin-top:16px; padding-top:12px; }
+  .consult-other-services h2 { font-size:12px; }
+  .consult-other-services > p { margin-top:5px; font-size:9px; line-height:1.45; }
+  .consult-other-services ul { gap:4px 8px; margin-top:6px; }
+  .consult-other-services li { font-size:8px; }
   .consult-panel { padding:28px 18px 34px; }
   .consult-panel-heading { display:block; }
   .consult-panel-heading p { font-size:20px; }
