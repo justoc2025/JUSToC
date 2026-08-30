@@ -62,7 +62,7 @@
     "cards": [
       { "category": "AI × 写真管理", "layout": "photo", "title": "現場写真管理システム", "description": ["写真をアップロードするだけで、AIが内容を解析・分類。", "現場ごとの写真管理・記録作成を効率化し、作業時間を大幅に削減します。"], "images": [{ "src": "/justoc-first-view.png", "alt": "現場写真管理システムの画面例 1" }, { "src": "/justoc-first-view.png", "alt": "現場写真管理システムの画面例 2" }] },
       { "category": "在庫 × 受発注管理", "layout": "inventory", "title": "在庫管理システム", "description": ["在庫数をリアルタイムで管理し、入出庫・発注状況を一目で把握。適正在庫の維持を支援します。"], "images": [{ "src": "/justoc-first-view.png", "alt": "在庫管理システムの画面例" }] },
-      { "category": "メール × 自動応答", "layout": "mail", "title": "メール自動返信システム", "description": ["お問い合わせに応じたメールを自動返信。", "送信内容を管理し、対応漏れを防止。", "迅速な顧客対応を支援します。"], "images": [] }
+      { "category": "メール × 自動応答", "layout": "mail", "title": "メール自動返信システム", "description": ["お問い合わせへの返信を自動化。", "対応漏れを防ぎ、迅速な顧客対応を支援します。"], "images": [] }
     ],
     "flow": {
       "title": "開発の流れ",
