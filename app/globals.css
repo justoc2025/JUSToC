@@ -111,9 +111,10 @@ a { color:inherit; text-decoration:none; }
 .service-card-body { display:flex; flex:1; flex-direction:column; }
 .service-card .service-description { margin:22px 0 0; }
 .service-card--photo { grid-row:span 2; }
-.service-card--photo .system-image-gallery { margin-top:auto; }
+.service-card--photo .service-description { margin-top:16px; }
+.service-card--photo .system-image-gallery { margin-top:16px; }
 .service-card--inventory .service-card-body { display:grid; grid-template-columns:minmax(0,1fr) minmax(124px,.72fr); align-items:end; gap:clamp(18px,2vw,30px); }
-.service-card--inventory .service-description { margin:22px 0 0; }
+.service-card--inventory .service-description { margin:12px 0 0; }
 .service-card--mail { justify-content:center; min-height:0; }
 .system-image-gallery { display:grid; gap:clamp(12px,1.3vw,18px); margin-top:24px; }
 .system-image-gallery--2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
