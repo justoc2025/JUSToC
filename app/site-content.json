@@ -5,9 +5,9 @@
     "ogAlt": "JUSToC｜AIとクリエイティブで、ビジネスを前へ。"
   },
   "hero": {
-    "heading": "A Iとクリエイティブで、ビジネスを前へ。",
-    "image": "/justoc-object-band-smoothed.png",
-    "imageAlt": "JUSToC。A Iとクリエイティブで、ビジネスを前へ。",
+    "heading": "AIとクリエイティブで、ビジネスを前へ。",
+    "image": "/justoc-hero-background-clean.png",
+    "imageAlt": "",
     "logoLabel": "JUSToC トップへ",
     "navigation": [
       { "id": "about", "label": "About", "href": "#about" },
