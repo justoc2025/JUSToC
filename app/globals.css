@@ -113,10 +113,10 @@ a { color:inherit; text-decoration:none; }
 .service-card h4 { font-size:clamp(22px,2vw,32px); white-space:nowrap; }
 .service-card-body { display:flex; flex:1; flex-direction:column; }
 .service-card .service-description { margin:22px 0 0; }
-.service-card--photo { grid-row:span 2; align-self:start; }
+.service-card--photo { grid-row:span 2; align-self:stretch; }
 .service-card--photo .service-description { margin-top:16px; }
 .service-card--photo .service-description span:nth-child(2) { font-size:clamp(12px,.9vw,15px); white-space:nowrap; }
-.service-card--photo .system-image-gallery { margin-top:16px; }
+.service-card--photo .system-image-gallery { width:96%; margin-top:16px; }
 .service-card--inventory { align-self:start; justify-content:flex-start; }
 .service-card--inventory .service-card-body { display:grid; flex:none; grid-template-columns:minmax(0,1fr) minmax(124px,.72fr); align-items:start; gap:clamp(18px,2vw,30px); margin-top:16px; }
 .service-card--inventory .service-description { margin:0; }
