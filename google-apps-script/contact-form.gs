@@ -47,6 +47,14 @@ function doPost(e) {
       body: buildNotification_(inquiry),
     });
 
+    MailApp.sendEmail({
+      to: inquiry.email,
+      replyTo: NOTIFY_TO,
+      name: "JUSToC",
+      subject: "【JUSToC】無料相談のお問い合わせを受け付けました",
+      body: buildAutoReply_(inquiry),
+    });
+
     return jsonResponse_({ ok: true });
   } catch (error) {
     console.error(error);
@@ -71,6 +79,34 @@ function buildNotification_(inquiry) {
     "",
     "その他・ご要望:",
     inquiry.requests,
+  ].join(String.fromCharCode(10));
+}
+
+function buildAutoReply_(inquiry) {
+  return [
+    inquiry.name + " 様",
+    "",
+    "このたびはJUSToCへお問い合わせいただき、誠にありがとうございます。",
+    "以下の内容で無料相談を受け付けました。",
+    "内容を確認のうえ、通常1〜2営業日以内に担当者よりご連絡いたします。",
+    "",
+    "―― お問い合わせ内容 ――",
+    "会社名・屋号: " + (inquiry.company || "未入力"),
+    "業種: " + (inquiry.industry || "未入力"),
+    "どのようなことにお困りですか？: " + inquiry.concerns,
+    "",
+    "現在のお困りごと・実現したいこと:",
+    inquiry.message || "未入力",
+    "",
+    "その他・ご要望:",
+    inquiry.requests || "未入力",
+    "――――――――――――――",
+    "",
+    "このメールにお心当たりがない場合は、お手数ですが破棄してください。",
+    "",
+    "JUSToC",
+    "https://justoc.jp",
+    "contact@justoc.jp",
   ].join(String.fromCharCode(10));
 }
 
