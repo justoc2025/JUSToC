@@ -1,5 +1,6 @@
 const SPREADSHEET_ID = "1g1d1lE2ADK9wh0UUxGbOFMVw_xlw29x6-IJKFDet8go";
 const SHEET_NAME = "フォームの回答 1";
+const AUTO_REPLY_SETTINGS_SHEET = "自動返信設定";
 const NOTIFY_TO = "contact@justoc.jp";
 
 /**
@@ -7,6 +8,9 @@ const NOTIFY_TO = "contact@justoc.jp";
  * ウェブアプリとしてデプロイしてください。
  */
 function doPost(e) {
+  let sheet = null;
+  let responseRow = null;
+
   try {
     const payload = JSON.parse((e && e.postData && e.postData.contents) || "{}");
     const expectedSecret = PropertiesService.getScriptProperties().getProperty("CONTACT_SHARED_SECRET");
@@ -26,7 +30,8 @@ function doPost(e) {
       requests: clean_(payload.requests),
     };
 
-    const sheet = SpreadsheetApp.openById(SPREADSHEET_ID).getSheetByName(SHEET_NAME);
+    const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);
+    sheet = spreadsheet.getSheetByName(SHEET_NAME);
     if (!sheet) throw new Error("保存先シートが見つかりません。");
 
     sheet.appendRow([
@@ -38,7 +43,12 @@ function doPost(e) {
       inquiry.concerns,
       inquiry.message,
       inquiry.requests,
+      "",
+      "",
+      "処理中",
+      "",
     ]);
+    responseRow = sheet.getLastRow();
 
     MailApp.sendEmail({
       to: NOTIFY_TO,
@@ -47,17 +57,33 @@ function doPost(e) {
       body: buildNotification_(inquiry),
     });
 
-    MailApp.sendEmail({
-      to: inquiry.email,
-      replyTo: NOTIFY_TO,
-      name: "JUSToC",
-      subject: "【JUSToC】無料相談のお問い合わせを受け付けました",
-      body: buildAutoReply_(inquiry),
-    });
+    const autoReply = getAutoReplySettings_(spreadsheet);
+    if (!autoReply.enabled) {
+      sheet.getRange(responseRow, 11, 1, 2).setValues([["自動返信OFF", ""]]);
+      return jsonResponse_({ ok: true, autoReply: false });
+    }
 
-    return jsonResponse_({ ok: true });
+    try {
+      MailApp.sendEmail({
+        to: inquiry.email,
+        replyTo: autoReply.replyTo || NOTIFY_TO,
+        name: "JUSToC",
+        subject: renderTemplate_(autoReply.subject, inquiry),
+        body: renderTemplate_(autoReply.body, inquiry),
+      });
+      sheet.getRange(responseRow, 11, 1, 2).setValues([["送信済み", new Date()]]);
+    } catch (autoReplyError) {
+      console.error(autoReplyError);
+      sheet.getRange(responseRow, 11, 1, 2).setValues([["送信失敗", ""]]);
+      return jsonResponse_({ ok: true, autoReply: false });
+    }
+
+    return jsonResponse_({ ok: true, autoReply: true });
   } catch (error) {
     console.error(error);
+    if (sheet && responseRow) {
+      sheet.getRange(responseRow, 11, 1, 2).setValues([["送信失敗", ""]]);
+    }
     return jsonResponse_({ ok: false, error: "送信を完了できませんでした。" });
   }
 }
@@ -82,32 +108,36 @@ function buildNotification_(inquiry) {
   ].join(String.fromCharCode(10));
 }
 
-function buildAutoReply_(inquiry) {
-  return [
-    inquiry.name + " 様",
-    "",
-    "このたびはJUSToCへお問い合わせいただき、誠にありがとうございます。",
-    "以下の内容で無料相談を受け付けました。",
-    "内容を確認のうえ、通常1〜2営業日以内に担当者よりご連絡いたします。",
-    "",
-    "―― お問い合わせ内容 ――",
-    "会社名・屋号: " + (inquiry.company || "未入力"),
-    "業種: " + (inquiry.industry || "未入力"),
-    "どのようなことにお困りですか？: " + inquiry.concerns,
-    "",
-    "現在のお困りごと・実現したいこと:",
-    inquiry.message || "未入力",
-    "",
-    "その他・ご要望:",
-    inquiry.requests || "未入力",
-    "――――――――――――――",
-    "",
-    "このメールにお心当たりがない場合は、お手数ですが破棄してください。",
-    "",
-    "JUSToC",
-    "https://justoc.jp",
-    "contact@justoc.jp",
-  ].join(String.fromCharCode(10));
+function getAutoReplySettings_(spreadsheet) {
+  const settingsSheet = spreadsheet.getSheetByName(AUTO_REPLY_SETTINGS_SHEET);
+  if (!settingsSheet) throw new Error("自動返信設定シートが見つかりません。");
+
+  const values = settingsSheet.getRange("B2:B6").getDisplayValues().map(function(row) {
+    return clean_(row[0]);
+  });
+
+  return {
+    enabled: values[0] === "有効",
+    subject: values[1],
+    body: values[2],
+    replyTo: values[4] || NOTIFY_TO,
+  };
+}
+
+function renderTemplate_(template, inquiry) {
+  const replacements = {
+    "{{お名前}}": inquiry.name,
+    "{{会社名・屋号}}": inquiry.company || "未入力",
+    "{{メールアドレス}}": inquiry.email,
+    "{{業種}}": inquiry.industry || "未入力",
+    "{{相談項目}}": inquiry.concerns || "未入力",
+    "{{相談内容}}": inquiry.message || "未入力",
+    "{{その他・ご要望}}": inquiry.requests || "未入力",
+  };
+
+  return Object.keys(replacements).reduce(function(result, key) {
+    return result.split(key).join(replacements[key]);
+  }, template);
 }
 
 function clean_(value) {
