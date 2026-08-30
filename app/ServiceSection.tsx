@@ -11,23 +11,26 @@ const iconCharacters: Record<string, string> = {
   support: "✓",
 };
 
-function LaptopMockup({ src, alt }: { src: string; alt: string }) {
-  return (
-    <div className="service-laptop">
-      <div className="service-laptop-screen">
-        <Image src={src} alt={alt} width={960} height={600} unoptimized />
-      </div>
-      <div className="service-laptop-base" aria-hidden="true" />
-    </div>
-  );
-}
-
 function ScreenGallery({ examples }: { examples: Array<{ src: string; alt: string }> }) {
   return (
     <div className="service-screen-gallery" aria-label="勤怠管理システムの画面例">
       {examples.map((example) => (
         <figure key={example.src} tabIndex={0}>
           <Image src={example.src} alt={example.alt} width={1280} height={920} unoptimized />
+        </figure>
+      ))}
+    </div>
+  );
+}
+
+function SystemImageGallery({ images, title }: { images: Array<{ src: string; alt: string }>; title: string }) {
+  if (!images.length) return null;
+
+  return (
+    <div className={`system-image-gallery system-image-gallery--${images.length}`} aria-label={`${title}の画面例`}>
+      {images.map((image, index) => (
+        <figure key={`${image.src}-${index}`} tabIndex={0}>
+          <Image src={image.src} alt={image.alt} width={960} height={720} unoptimized />
         </figure>
       ))}
     </div>
@@ -70,10 +73,12 @@ export default function ServiceSection() {
 
           <div className="service-card-grid">
             {service.cards.map((card) => (
-              <article className="service-card" key={card.title}>
+              <article className={`service-card service-card--${card.layout}`} key={card.title}>
                 <h4>{card.title}</h4>
-                <p className="service-description">{card.description.map((line) => <span key={line}>{line}</span>)}</p>
-                <LaptopMockup src={card.image} alt={card.imageAlt} />
+                <div className="service-card-body">
+                  <p className="service-description">{card.description.map((line) => <span key={line}>{line}</span>)}</p>
+                  <SystemImageGallery images={card.images} title={card.title} />
+                </div>
               </article>
             ))}
           </div>
