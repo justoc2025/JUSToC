@@ -26,20 +26,27 @@ export async function POST(request: Request) {
 
   const email = String(body.email).trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return Response.json({ error: "メールアドレスを確認してください。" }, { status: 400 });
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO;
-  if (!apiKey || !to) return Response.json({ error: "送信設定が未完了です。" }, { status: 503 });
+  const gasWebAppUrl = process.env.GAS_WEB_APP_URL;
+  const sharedSecret = process.env.GAS_SHARED_SECRET;
+  if (!gasWebAppUrl || !sharedSecret) return Response.json({ error: "送信設定が未完了です。" }, { status: 503 });
 
   const safe = (value: unknown) => String(value ?? "").replace(/[<>]/g, "");
-  const response = await fetch("https://api.resend.com/emails", {
+  const response = await fetch(gasWebAppUrl, {
     method: "POST",
-    headers: { authorization: `Bearer ${apiKey}`, "content-type": "application/json" },
+    headers: { "content-type": "application/json" },
+    redirect: "follow",
     body: JSON.stringify({
-      from: "JUSToC Website <onboarding@resend.dev>", to: [to], reply_to: email,
-      subject: `【JUSToC無料相談】${safe(body.name)}様`,
-      text: `お名前: ${safe(body.name)}\n会社名・屋号: ${safe(body.company)}\nメール: ${email}\n業種: ${safe(body.industry)}\n\nお困りごと:\n${concerns.map((item) => `・${safe(item)}`).join("\n")}\n\n現在のお困りごと・実現したいこと:\n${safe(body.message)}\n\nその他・ご要望:\n${safe(body.requests)}`,
+      secret: sharedSecret,
+      name: safe(body.name),
+      company: safe(body.company),
+      email,
+      industry: safe(body.industry),
+      concerns: concerns.map(safe),
+      message: safe(body.message),
+      requests: safe(body.requests),
     }),
   });
-  if (!response.ok) return Response.json({ error: "メール送信に失敗しました。" }, { status: 502 });
+  const result = await response.json().catch(() => null);
+  if (!response.ok || !result?.ok) return Response.json({ error: "送信に失敗しました。" }, { status: 502 });
   return Response.json({ ok: true });
 }
