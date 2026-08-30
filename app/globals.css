@@ -22,6 +22,7 @@ a { color:inherit; text-decoration:none; }
 .hotspot-contact { left:88.55%; top:4.25%; width:7.6%; height:5.9%; }
 .hotspot-nav { overflow:hidden; background:#020303; color:#fff; font-size:clamp(7px,1.34vw,22px); letter-spacing:.08em; }
 .hotspot-nav::after,.hotspot-view-service::after { content:""; position:absolute; left:12%; right:12%; bottom:4%; height:1px; background:var(--blue); transform:scaleX(0); transform-origin:right; transition:transform .25s ease; }
+.hotspot-view-service::after { left:4%; right:auto; width:56%; }
 .hotspot-nav:hover,.hotspot-nav:focus-visible,.hotspot-view-service:hover,.hotspot-view-service:focus-visible { transform:scale(1.07); }
 .hotspot-nav:hover::after,.hotspot-nav:focus-visible::after,.hotspot-view-service:hover::after,.hotspot-view-service:focus-visible::after { transform:scaleX(1); transform-origin:left; }
 .hotspot-consult { left:5.55%; top:65.2%; width:15.9%; height:9.3%; }
