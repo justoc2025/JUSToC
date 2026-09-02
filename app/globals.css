@@ -255,12 +255,14 @@ a { color:inherit; text-decoration:none; }
   .value-tabs { grid-template-columns:repeat(5,minmax(0,1fr)); width:100%; margin:52px 0 0; padding:0; overflow:visible; }
   .value-tab { min-width:0; min-height:48px; padding:13px 2px; font-size:clamp(6px,1.9vw,10px); letter-spacing:-.01em; white-space:nowrap; }
   .value-tab::after { left:8%; right:8%; }
-  .value-detail { min-height:300px; margin-top:24px; padding:42px 24px; }
+  .value-detail { min-height:200px; margin-top:24px; padding:24px 16px; }
   .value-logo { width:88%; }
-  .value-logo p { line-height:1.8; }
+  .value-logo p { margin-top:14px; line-height:1.55; }
   .value-copy { width:100%; }
-  .value-copy h3 { font-size:46px; }
-  .value-copy > p:last-child { font-size:clamp(9px,2.55vw,12px); line-height:1.8; letter-spacing:.01em; }
+  .value-copy .value-en { margin-bottom:6px; font-size:11px; }
+  .value-copy h3 { padding-bottom:9px; font-size:36px; }
+  .value-copy > span { margin:12px auto 10px; }
+  .value-copy > p:last-child { font-size:clamp(8px,2.35vw,10px); line-height:1.55; letter-spacing:0; }
   .value-summary { margin-top:54px; }
   .value-summary > p { font-size:clamp(10px,4vw,19px); line-height:1.8; white-space:nowrap; }
   .value-summary-list { grid-template-columns:repeat(5,1fr); gap:5px; margin-top:34px; }
