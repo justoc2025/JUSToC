@@ -257,7 +257,7 @@ a { color:inherit; text-decoration:none; }
   .value-tab::after { left:8%; right:8%; }
   .value-detail { min-height:200px; margin-top:24px; padding:24px 16px; }
   .value-logo { width:88%; }
-  .value-logo p { margin-top:14px; line-height:1.55; }
+  .value-logo p { display:none; }
   .value-copy { width:100%; }
   .value-copy .value-en { margin-bottom:6px; font-size:11px; }
   .value-copy h3 { padding-bottom:9px; font-size:36px; }
@@ -270,6 +270,7 @@ a { color:inherit; text-decoration:none; }
   .value-summary-list div { gap:8px; }
   .value-summary-list span { width:42px; height:42px; font-size:30px; }
   .value-summary-list strong { font-size:11px; letter-spacing:.03em; white-space:nowrap; }
+  .service-background-label { font-size:220px; }
   .consult-section { padding:48px 14px; }
   .consult-shell { display:block; border-radius:12px; }
   .consult-intro { padding:18px 24px 20px; border-right:0; border-bottom:1px solid #e3e8f0; }
