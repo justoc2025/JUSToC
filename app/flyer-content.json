@@ -1,0 +1,192 @@
+{
+  "document": {
+    "id": "justoc-networking-flyer-a4-v1",
+    "type": "flyer",
+    "language": "ja-JP",
+    "purpose": "異業種交流会での事業紹介・相談獲得",
+    "page": {
+      "size": "A4",
+      "orientation": "portrait",
+      "widthMm": 210,
+      "heightMm": 297,
+      "bleedMm": 3,
+      "safeMarginMm": 12,
+      "sides": 1
+    }
+  },
+  "brand": {
+    "name": "JUSToC",
+    "tagline": "Just for your results",
+    "logo": "/justoc-wordmark.png",
+    "colors": {
+      "background": "#050505",
+      "surface": "#11151D",
+      "primary": "#0868FF",
+      "text": "#F7F7F4",
+      "mutedText": "#B9C0CA"
+    },
+    "fonts": {
+      "heading": "Hiragino Mincho ProN, Yu Mincho, serif",
+      "body": "Hiragino Kaku Gothic ProN, Yu Gothic, sans-serif"
+    },
+    "visualStyle": [
+      "信頼感",
+      "先進性",
+      "余白を活かした上質さ",
+      "黒を基調にブルーをアクセントとして使用"
+    ]
+  },
+  "content": {
+    "eyebrow": "AI × CREATIVE × BUSINESS",
+    "headline": "その面倒、\n仕組みでシンプルにしませんか？",
+    "lead": "JUSToCは、AIとクリエイティブの力で、日々の手作業や非効率を解決するオーダーメイドの業務効率化システムを開発します。",
+    "problemSection": {
+      "title": "こんなお悩み、ありませんか？",
+      "items": [
+        {
+          "icon": "clock",
+          "text": "入力・転記・集計に時間がかかる"
+        },
+        {
+          "icon": "folder",
+          "text": "写真や書類の整理が追いつかない"
+        },
+        {
+          "icon": "users",
+          "text": "勤怠・給与・在庫の管理が煩雑"
+        },
+        {
+          "icon": "sparkles",
+          "text": "AIを活用したいが、何から始めるか分からない"
+        }
+      ]
+    },
+    "solutionSection": {
+      "title": "御社の業務に合う仕組みを、一緒につくります。",
+      "body": "既製品に業務を合わせるのではなく、現場の流れや課題を丁寧に伺い、本当に必要な機能に絞ってご提案します。",
+      "examples": [
+        {
+          "category": "勤怠 × 時給計算",
+          "title": "勤怠管理システム",
+          "description": "出退勤の打刻から勤務時間・時給計算まで自動化"
+        },
+        {
+          "category": "AI × 写真管理",
+          "title": "現場写真管理システム",
+          "description": "写真の解析・分類・記録作成を効率化"
+        },
+        {
+          "category": "在庫 × 受発注",
+          "title": "在庫管理システム",
+          "description": "入出庫や発注状況をリアルタイムで見える化"
+        },
+        {
+          "category": "メール × 自動応答",
+          "title": "メール自動返信システム",
+          "description": "返信を自動化し、対応漏れを防止"
+        }
+      ]
+    },
+    "strengths": [
+      {
+        "number": "01",
+        "title": "課題整理から相談OK",
+        "description": "まだ要件が固まっていなくても大丈夫です。"
+      },
+      {
+        "number": "02",
+        "title": "業種・業務に合わせて設計",
+        "description": "必要な機能を見極め、使いやすく仕立てます。"
+      },
+      {
+        "number": "03",
+        "title": "導入後2か月は無料サポート",
+        "description": "操作相談や不具合対応、軽微な修正を支援します。"
+      }
+    ],
+    "otherServices": {
+      "title": "クリエイティブ領域もご相談いただけます",
+      "items": [
+        "動画編集・撮影",
+        "YouTube・SNS運用代行",
+        "SNSデザイン",
+        "LINE構築"
+      ]
+    },
+    "callToAction": {
+      "headline": "まずは、今の「面倒」を聞かせてください。",
+      "body": "何を効率化できるか分からない段階でも、お気軽にご相談ください。",
+      "badge": "相談無料",
+      "buttonLabel": "無料相談はこちら",
+      "url": "https://justoc.jp/contact",
+      "qrCode": {
+        "value": "https://justoc.jp/contact",
+        "asset": "{{QR_CODE_IMAGE}}",
+        "caption": "スマートフォンから約3分"
+      }
+    },
+    "contact": {
+      "company": "JUSToC",
+      "website": "https://justoc.jp",
+      "email": "contact@justoc.jp",
+      "representative": "{{担当者名}}",
+      "phone": "{{電話番号}}"
+    }
+  },
+  "layout": {
+    "grid": {
+      "columns": 12,
+      "gutterMm": 4
+    },
+    "sections": [
+      {
+        "id": "hero",
+        "heightMm": 78,
+        "background": "#050505",
+        "elements": [
+          "logo",
+          "eyebrow",
+          "headline",
+          "lead"
+        ]
+      },
+      {
+        "id": "problems",
+        "heightMm": 48,
+        "background": "#F4F7FB",
+        "columns": 2,
+        "elements": [
+          "problemSection"
+        ]
+      },
+      {
+        "id": "solutions",
+        "heightMm": 88,
+        "background": "#FFFFFF",
+        "columns": 2,
+        "elements": [
+          "solutionSection",
+          "strengths"
+        ]
+      },
+      {
+        "id": "cta",
+        "heightMm": 59,
+        "background": "#0868FF",
+        "columns": 2,
+        "elements": [
+          "callToAction",
+          "qrCode",
+          "contact"
+        ]
+      }
+    ]
+  },
+  "productionNotes": [
+    "本文は最小9pt、見出しは14pt以上を目安にする",
+    "QRコードは印刷時に20mm角以上を確保する",
+    "代表者名と電話番号は確定後にプレースホルダーを差し替える",
+    "印刷入稿時は画像を300dpi、カラーモードをCMYKに変換する",
+    "交流会では数秒で要点が伝わるよう、説明文を詰め込みすぎない"
+  ]
+}
