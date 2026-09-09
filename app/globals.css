@@ -8,6 +8,7 @@ a { color:inherit; text-decoration:none; }
 
 .fv-page,.fv { min-height:100svh; background:var(--black); }
 .fv { position:relative; min-height:0; overflow:hidden; }
+.fv::after { content:""; position:absolute; z-index:1; left:0; right:0; bottom:0; height:112px; pointer-events:none; background:linear-gradient(180deg,rgba(5,5,5,0) 0,rgba(5,5,5,.28) 57%,rgba(5,5,5,.78) 100%); }
 .fv-canvas { position:relative; width:100vw; aspect-ratio:1672/941; margin:0 auto; }
 .fv-art { position:absolute; z-index:0; inset:0; width:100%; height:100%; display:block; object-fit:contain; }
 .fv-logo { position:absolute; z-index:2; left:2.9%; top:4.9%; width:25.5%; transition:transform .25s ease; }
