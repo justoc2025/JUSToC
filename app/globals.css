@@ -33,7 +33,7 @@ a { color:inherit; text-decoration:none; }
 
 .about-section { position:relative; isolation:isolate; overflow:hidden; min-height:100svh; padding:clamp(48px,5vw,82px) clamp(24px,6.2vw,104px) clamp(78px,9vw,148px); background:#050505; font-family:"Ryumin","A-OTF Ryumin Pr6N","リュウミン","Hiragino Mincho ProN","Yu Mincho",serif; }
 .about-section::before { content:""; position:absolute; z-index:-2; inset:0; background-image:url('/justoc-palms-reference.png'); background-size:100% auto; background-position:center top; background-repeat:repeat-y; opacity:.86; }
-.about-section::after { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,rgba(5,5,5,.88) 0,rgba(5,5,5,.4) 70px,rgba(5,5,5,0) 160px),radial-gradient(circle at 50% 48%,rgba(8,15,28,.18),rgba(2,2,2,.46) 72%),linear-gradient(180deg,rgba(5,5,5,.18),rgba(5,5,5,.42)); }
+.about-section::after { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,rgba(5,5,5,.86) 0,rgba(5,5,5,.32) 44px,rgba(5,5,5,0) 105px),linear-gradient(0deg,rgba(5,5,5,.78) 0,rgba(5,5,5,.28) 48px,rgba(5,5,5,0) 112px),radial-gradient(circle at 50% 48%,rgba(8,15,28,.18),rgba(2,2,2,.46) 72%),linear-gradient(180deg,rgba(5,5,5,.18),rgba(5,5,5,.42)); }
 .about-inner { width:min(100%,1440px); margin:0 auto; }
 .about-heading { position:relative; isolation:isolate; padding-top:clamp(68px,8vw,120px); text-align:center; }
 .about-background-label { position:absolute; z-index:-1; top:0; left:-.05em; color:rgba(255,255,255,.045); font-size:clamp(70px,10vw,160px); line-height:1; letter-spacing:.08em; white-space:nowrap; }
@@ -66,7 +66,7 @@ a { color:inherit; text-decoration:none; }
 
 .service-section { position:relative; isolation:isolate; overflow:hidden; padding:clamp(48px,5vw,82px) clamp(24px,6.2vw,104px) clamp(78px,9vw,148px); background:#050505; font-family:"Ryumin","A-OTF Ryumin Pr6N","リュウミン","Hiragino Mincho ProN","Yu Mincho",serif; }
 .service-section::before { content:""; position:absolute; z-index:-2; inset:0; background-image:url('/justoc-palms-reference.png'); background-size:100% auto; background-position:center top; background-repeat:repeat-y; opacity:.86; }
-.service-section::after { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,rgba(5,5,5,.88) 0,rgba(5,5,5,.4) 70px,rgba(5,5,5,0) 160px),radial-gradient(circle at 50% 48%,rgba(8,15,28,.18),rgba(2,2,2,.46) 72%),linear-gradient(180deg,rgba(5,5,5,.18),rgba(5,5,5,.42)); }
+.service-section::after { content:""; position:absolute; z-index:-1; inset:0; background:linear-gradient(180deg,rgba(5,5,5,.86) 0,rgba(5,5,5,.32) 44px,rgba(5,5,5,0) 105px),linear-gradient(0deg,rgba(5,5,5,.78) 0,rgba(5,5,5,.28) 48px,rgba(5,5,5,0) 112px),radial-gradient(circle at 50% 48%,rgba(8,15,28,.18),rgba(2,2,2,.46) 72%),linear-gradient(180deg,rgba(5,5,5,.18),rgba(5,5,5,.42)); }
 .service-inner { width:min(100%,1440px); margin:0 auto; }
 .service-hero { position:relative; isolation:isolate; padding-top:clamp(68px,8vw,120px); }
 .service-background-label { position:absolute; z-index:-1; top:0; left:-.05em; color:rgba(255,255,255,.045); font-size:clamp(70px,10vw,160px); line-height:1; letter-spacing:.08em; }
