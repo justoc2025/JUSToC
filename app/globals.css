@@ -17,7 +17,8 @@ a { color:inherit; text-decoration:none; }
 .fv-nav a { position:relative; display:inline-block; padding:8px 0; transition:transform .25s ease; transform-origin:center; }
 .fv-nav a::after,.fv-view-service::after { content:""; position:absolute; left:0; right:0; bottom:2px; height:1px; background:var(--blue); transform:scaleX(0); transform-origin:right; transition:transform .25s ease; }
 .fv-nav a:hover::after,.fv-nav a:focus-visible::after,.fv-view-service:hover::after,.fv-view-service:focus-visible::after { transform:scaleX(1); transform-origin:left; }
-.fv-nav a:hover,.fv-nav a:focus-visible,.fv-view-service:hover,.fv-view-service:focus-visible { transform:scale(1.08); }
+.fv-nav a:hover,.fv-nav a:focus-visible { transform:scale(1.18); }
+.fv-view-service:hover,.fv-view-service:focus-visible { transform:scale(1.08); }
 .fv-copy { position:absolute; z-index:2; left:5.55%; top:30.2%; width:49%; font-family:"Hiragino Mincho ProN","Yu Mincho","YuMincho",serif; }
 .fv-copy h1 { margin:0; color:#f7f7f4; font-size:clamp(28px,4.55vw,76px); font-weight:400; line-height:1.43; letter-spacing:.045em; text-shadow:0 2px 7px rgba(0,0,0,.72); }
 .fv-copy h1 span { display:block; white-space:nowrap; }
