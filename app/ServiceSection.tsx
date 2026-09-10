@@ -42,13 +42,13 @@ export default function ServiceSection() {
 
   return (
     <section className="service-section" id="service" aria-labelledby="service-title">
-      <div className="service-inner">
-        <header className="service-hero">
-          <span className="service-background-label" aria-hidden="true">SERVICE</span>
-          <h2 id="service-title">{service.title}</h2>
-          <p>{service.description.map((line) => <span key={line}>{line}</span>)}</p>
-        </header>
+      <header className="service-hero">
+        <span className="service-background-label" aria-hidden="true">SERVICE</span>
+        <h2 id="service-title">{service.title}</h2>
+        <p>{service.description.map((line) => <span key={line}>{line}</span>)}</p>
+      </header>
 
+      <div className="service-inner">
         <div className="service-systems">
           <header className="service-section-heading">
             <p>{service.systemsKicker}</p>
