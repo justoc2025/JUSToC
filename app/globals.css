@@ -241,6 +241,11 @@ a { color:inherit; text-decoration:none; }
   .service-card--photo { margin-bottom:26px; }
 }
 
+@media (min-width:701px) and (max-width:1300px) {
+  .service-card--mail { transform:translateY(-10px); }
+  .service-card--photo { margin-bottom:31px; }
+}
+
 @media (max-width:700px) {
   .fv { display:flex; align-items:center; }
   .fv-canvas { width:100vw; margin-left:0; }
