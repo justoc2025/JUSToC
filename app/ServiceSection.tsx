@@ -39,6 +39,18 @@ function SystemImageGallery({ images, title }: { images: Array<{ src: string; al
 
 export default function ServiceSection() {
   const service = siteContent.service;
+  const photoCard = service.cards.find((card) => card.layout === "photo");
+  const stackedCards = service.cards.filter((card) => card.layout !== "photo");
+
+  const renderCard = (card: (typeof service.cards)[number]) => (
+    <article className={`service-card service-card--${card.layout}`} key={card.title}>
+      <h4>{card.title}</h4>
+      <div className="service-card-body">
+        <p className="service-description">{card.description.map((line) => <span key={line}>{line}</span>)}</p>
+        <SystemImageGallery images={card.images} title={card.title} />
+      </div>
+    </article>
+  );
 
   return (
     <section className="service-section" id="service" aria-labelledby="service-title">
@@ -72,15 +84,10 @@ export default function ServiceSection() {
           </article>
 
           <div className="service-card-grid">
-            {service.cards.map((card) => (
-              <article className={`service-card service-card--${card.layout}`} key={card.title}>
-                <h4>{card.title}</h4>
-                <div className="service-card-body">
-                  <p className="service-description">{card.description.map((line) => <span key={line}>{line}</span>)}</p>
-                  <SystemImageGallery images={card.images} title={card.title} />
-                </div>
-              </article>
-            ))}
+            {photoCard && renderCard(photoCard)}
+            <div className="service-card-stack">
+              {stackedCards.map(renderCard)}
+            </div>
           </div>
         </div>
 
