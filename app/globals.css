@@ -119,7 +119,7 @@ a { color:inherit; text-decoration:none; }
 .service-card--photo .service-description span:nth-child(2) { font-size:clamp(12px,.9vw,15px); white-space:nowrap; }
 .service-card--photo .system-image-gallery { width:96%; margin-top:16px; }
 .service-card--inventory { align-self:stretch; justify-content:flex-start; }
-.service-card--inventory .service-card-body { display:grid; flex:1; grid-template-columns:minmax(0,1fr) minmax(124px,.72fr); align-items:center; gap:clamp(18px,2vw,30px); margin-top:16px; }
+.service-card--inventory .service-card-body { display:grid; flex:1; grid-template-columns:minmax(0,1fr) minmax(124px,.9fr); align-items:center; gap:clamp(18px,2vw,30px); margin-top:16px; }
 .service-card--inventory .service-description { margin:0; }
 .service-card--inventory .system-image-gallery { align-self:center; margin-top:-42px; margin-bottom:-42px; }
 .service-card--mail { align-self:stretch; justify-content:center; min-height:0; padding-top:clamp(20px,1.8vw,28px); padding-bottom:clamp(20px,1.8vw,28px); }
