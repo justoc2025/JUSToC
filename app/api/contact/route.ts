@@ -9,7 +9,7 @@ function isOptionalText(value: unknown, max: number) {
 }
 
 export async function POST(request: Request) {
-  if (process.env.NEXT_PUBLIC_CONTACT_FORM_ENABLED !== "true") return Response.json({ error: "フォームは準備中です。" }, { status: 503 });
+  if (process.env.CONTACT_FORM_ENABLED !== "true") return Response.json({ error: "フォームは準備中です。" }, { status: 503 });
 
   const ip = request.headers.get("cf-connecting-ip") ?? "unknown";
   const now = Date.now();

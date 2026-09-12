@@ -7,7 +7,7 @@ export const metadata: Metadata = content.metadata;
 export const dynamic = "force-dynamic";
 
 export default function ContactPage() {
-  const formEnabled = process.env.NEXT_PUBLIC_CONTACT_FORM_ENABLED === "true";
+  const formEnabled = process.env.CONTACT_FORM_ENABLED === "true";
 
   return (
     <main className="consult-page">
