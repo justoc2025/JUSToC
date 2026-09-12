@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import content from "./contact-content.json";
 
 type Question = {
@@ -43,15 +43,54 @@ function Field({ number, title, required = false, description, children }: Field
   );
 }
 
-export default function ContactForm({ enabled }: { enabled: boolean }) {
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (element: HTMLElement, options: Record<string, unknown>) => string;
+      reset: (widgetId: string) => void;
+    };
+  }
+}
+
+export default function ContactForm({ enabled, turnstileSiteKey }: { enabled: boolean; turnstileSiteKey: string }) {
   const [notice, setNotice] = useState("");
   const [sending, setSending] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
   const [consentAccepted, setConsentAccepted] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const turnstileElement = useRef<HTMLDivElement>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
+
+  useEffect(() => {
+    if (!turnstileSiteKey || !turnstileElement.current) return;
+    const renderWidget = () => {
+      if (!window.turnstile || !turnstileElement.current || turnstileWidgetId.current) return;
+      turnstileWidgetId.current = window.turnstile.render(turnstileElement.current, {
+        sitekey: turnstileSiteKey,
+        theme: "light",
+        callback: (token: string) => setTurnstileToken(token),
+        "expired-callback": () => setTurnstileToken(""),
+        "error-callback": () => setTurnstileToken(""),
+      });
+    };
+    const existingScript = document.querySelector<HTMLScriptElement>('script[src^="https://challenges.cloudflare.com/turnstile/v0/api.js"]');
+    if (existingScript) {
+      if (window.turnstile) renderWidget();
+      else existingScript.addEventListener("load", renderWidget, { once: true });
+      return () => existingScript.removeEventListener("load", renderWidget);
+    }
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.addEventListener("load", renderWidget, { once: true });
+    document.head.appendChild(script);
+    return () => script.removeEventListener("load", renderWidget);
+  }, [turnstileSiteKey]);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!enabled || sending) return;
+    if (!enabled || sending || !consentAccepted || !turnstileToken) return;
     setSending(true);
     setNotice("");
     const form = event.currentTarget;
@@ -73,6 +112,7 @@ export default function ContactForm({ enabled }: { enabled: boolean }) {
       requests: data.get("requests"),
       consent: data.get("consent"),
       website: data.get("website"),
+      turnstileToken,
     };
 
     try {
@@ -85,6 +125,8 @@ export default function ContactForm({ enabled }: { enabled: boolean }) {
       if (!response.ok) throw new Error(result?.error || "送信に失敗しました。");
       form.reset();
       setConsentAccepted(false);
+      setTurnstileToken("");
+      if (turnstileWidgetId.current) window.turnstile?.reset(turnstileWidgetId.current);
       setSucceeded(true);
       setNotice(formContent.confirmationMessage);
     } catch (error) {
@@ -125,11 +167,12 @@ export default function ContactForm({ enabled }: { enabled: boolean }) {
         <input type="checkbox" name="consent" required checked={consentAccepted} onChange={(event) => setConsentAccepted(event.target.checked)} />
         <span>{formContent.consent}</span>
       </label>
+      <div className="consult-turnstile" ref={turnstileElement} aria-label="ロボットではないことの確認" />
       <div className="consult-assurance">
         <span aria-hidden="true">✓</span>
         <p><strong>{formContent.assuranceTitle}</strong>{formContent.assuranceText}</p>
       </div>
-      <button className="consult-submit" type="submit" disabled={!enabled || sending || !consentAccepted}>
+      <button className="consult-submit" type="submit" disabled={!enabled || sending || !consentAccepted || !turnstileToken}>
         {sending ? "送信しています…" : enabled ? formContent.submitLabel : "ただいま準備中です"}<span aria-hidden="true">→</span>
       </button>
       {notice && <p className={`consult-notice ${succeeded ? "is-success" : "is-error"}`} role="status">{notice}</p>}

@@ -22,13 +22,27 @@ export async function POST(request: Request) {
   if (body.website) return Response.json({ ok: true });
   const concerns = typeof body.concerns === "string" ? [body.concerns] : Array.isArray(body.concerns) ? body.concerns.filter((value): value is string => typeof value === "string") : [];
   if (!isText(body.name, 100) || !isText(body.email, 254) || concerns.length !== 1 || body.consent !== "on") return Response.json({ error: "必須項目を確認してください。" }, { status: 400 });
+  if (!isText(body.turnstileToken, 2048)) return Response.json({ error: "ロボットではないことを確認してください。" }, { status: 400 });
   if (!isOptionalText(body.company, 150) || !isOptionalText(body.industry, 100) || !isOptionalText(body.message, 4000) || !isOptionalText(body.requests, 2000)) return Response.json({ error: "入力できる文字数を超えています。" }, { status: 400 });
 
   const email = String(body.email).trim();
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return Response.json({ error: "メールアドレスを確認してください。" }, { status: 400 });
   const gasWebAppUrl = process.env.GAS_WEB_APP_URL;
   const sharedSecret = process.env.GAS_SHARED_SECRET;
-  if (!gasWebAppUrl || !sharedSecret) return Response.json({ error: "送信設定が未完了です。" }, { status: 503 });
+  const turnstileSecretKey = process.env.TURNSTILE_SECRET_KEY;
+  if (!gasWebAppUrl || !sharedSecret || !turnstileSecretKey) return Response.json({ error: "送信設定が未完了です。" }, { status: 503 });
+
+  const verification = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+    method: "POST",
+    headers: { "content-type": "application/x-www-form-urlencoded" },
+    body: new URLSearchParams({
+      secret: turnstileSecretKey,
+      response: String(body.turnstileToken),
+      remoteip: ip === "unknown" ? "" : ip,
+    }),
+  });
+  const verificationResult = await verification.json().catch(() => null) as { success?: boolean } | null;
+  if (!verification.ok || !verificationResult?.success) return Response.json({ error: "認証をもう一度お試しください。" }, { status: 400 });
 
   const safe = (value: unknown) => String(value ?? "").replace(/[<>]/g, "");
   const response = await fetch(gasWebAppUrl, {

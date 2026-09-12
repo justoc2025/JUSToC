@@ -8,6 +8,7 @@ export const dynamic = "force-dynamic";
 
 export default function ContactPage() {
   const formEnabled = process.env.CONTACT_FORM_ENABLED === "true";
+  const turnstileSiteKey = process.env.TURNSTILE_SITE_KEY ?? "";
 
   return (
     <main className="consult-page">
@@ -29,7 +30,7 @@ export default function ContactPage() {
           </aside>
           <div className="consult-panel">
             <div className="consult-panel-heading"><p>{content.form.title}</p><span>{content.form.timeEstimate}</span></div>
-            <ContactForm enabled={formEnabled} />
+            <ContactForm enabled={formEnabled} turnstileSiteKey={turnstileSiteKey} />
           </div>
         </div>
       </section>
