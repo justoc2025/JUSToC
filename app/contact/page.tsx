@@ -4,8 +4,11 @@ import ContactForm from "../ContactForm";
 import content from "../contact-content.json";
 
 export const metadata: Metadata = content.metadata;
+export const dynamic = "force-dynamic";
 
 export default function ContactPage() {
+  const formEnabled = process.env.NEXT_PUBLIC_CONTACT_FORM_ENABLED === "true";
+
   return (
     <main className="consult-page">
       <section className="consult-section" aria-labelledby="consult-title">
@@ -26,7 +29,7 @@ export default function ContactPage() {
           </aside>
           <div className="consult-panel">
             <div className="consult-panel-heading"><p>{content.form.title}</p><span>{content.form.timeEstimate}</span></div>
-            <ContactForm />
+            <ContactForm enabled={formEnabled} />
           </div>
         </div>
       </section>

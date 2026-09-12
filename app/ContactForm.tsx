@@ -43,8 +43,7 @@ function Field({ number, title, required = false, description, children }: Field
   );
 }
 
-export default function ContactForm() {
-  const enabled = process.env.NEXT_PUBLIC_CONTACT_FORM_ENABLED === "true";
+export default function ContactForm({ enabled }: { enabled: boolean }) {
   const [notice, setNotice] = useState("");
   const [sending, setSending] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
