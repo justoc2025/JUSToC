@@ -47,6 +47,7 @@ export default function ContactForm({ enabled }: { enabled: boolean }) {
   const [notice, setNotice] = useState("");
   const [sending, setSending] = useState(false);
   const [succeeded, setSucceeded] = useState(false);
+  const [consentAccepted, setConsentAccepted] = useState(false);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -83,6 +84,7 @@ export default function ContactForm({ enabled }: { enabled: boolean }) {
       const result = await response.json().catch(() => null);
       if (!response.ok) throw new Error(result?.error || "送信に失敗しました。");
       form.reset();
+      setConsentAccepted(false);
       setSucceeded(true);
       setNotice(formContent.confirmationMessage);
     } catch (error) {
@@ -120,14 +122,14 @@ export default function ContactForm({ enabled }: { enabled: boolean }) {
       ))}
 
       <label className="consult-consent">
-        <input type="checkbox" name="consent" required />
+        <input type="checkbox" name="consent" required checked={consentAccepted} onChange={(event) => setConsentAccepted(event.target.checked)} />
         <span>{formContent.consent}</span>
       </label>
       <div className="consult-assurance">
         <span aria-hidden="true">✓</span>
         <p><strong>{formContent.assuranceTitle}</strong>{formContent.assuranceText}</p>
       </div>
-      <button className="consult-submit" type="submit" disabled={!enabled || sending}>
+      <button className="consult-submit" type="submit" disabled={!enabled || sending || !consentAccepted}>
         {sending ? "送信しています…" : enabled ? formContent.submitLabel : "ただいま準備中です"}<span aria-hidden="true">→</span>
       </button>
       {notice && <p className={`consult-notice ${succeeded ? "is-success" : "is-error"}`} role="status">{notice}</p>}
