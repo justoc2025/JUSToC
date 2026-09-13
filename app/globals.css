@@ -218,6 +218,7 @@ a { color:inherit; text-decoration:none; }
 .consult-checkbox input { flex:0 0 auto; width:16px; height:16px; margin:1px 0 0; accent-color:var(--blue); }
 .consult-consent { display:flex; align-items:flex-start; justify-content:center; gap:10px; margin:28px 0; color:#4a5260; font-size:12px; line-height:1.6; cursor:pointer; }
 .consult-consent input { width:17px; height:17px; margin:0; accent-color:var(--blue); }
+.consult-turnstile-note { margin:14px 0 8px; color:#69717e; text-align:center; font-size:12px; line-height:1.6; }
 .consult-turnstile { display:flex; min-height:65px; justify-content:center; margin:0 0 14px; }
 .consult-assurance { display:flex; align-items:center; gap:18px; padding:20px 24px; border-radius:7px; background:linear-gradient(90deg,#edf5ff,#f3f7fd); }
 .consult-assurance > span { display:grid; place-items:center; flex:0 0 auto; width:42px; height:42px; border:2px solid var(--blue); border-radius:50%; color:var(--blue); font-size:22px; }

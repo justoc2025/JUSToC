@@ -167,11 +167,12 @@ export default function ContactForm({ enabled, turnstileSiteKey }: { enabled: bo
         <input type="checkbox" name="consent" required checked={consentAccepted} onChange={(event) => setConsentAccepted(event.target.checked)} />
         <span>{formContent.consent}</span>
       </label>
-      <div className="consult-turnstile" ref={turnstileElement} aria-label="ロボットではないことの確認" />
       <div className="consult-assurance">
         <span aria-hidden="true">✓</span>
         <p><strong>{formContent.assuranceTitle}</strong>{formContent.assuranceText}</p>
       </div>
+      <p className="consult-turnstile-note">セキュリティ確認は自動で行われます。</p>
+      <div className="consult-turnstile" ref={turnstileElement} aria-label="ロボットではないことの確認" />
       <button className="consult-submit" type="submit" disabled={!enabled || sending || !consentAccepted || !turnstileToken}>
         {sending ? "送信しています…" : enabled ? formContent.submitLabel : "ただいま準備中です"}<span aria-hidden="true">→</span>
       </button>
