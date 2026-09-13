@@ -219,7 +219,8 @@ a { color:inherit; text-decoration:none; }
 .consult-consent { display:flex; align-items:flex-start; justify-content:center; gap:10px; margin:28px 0; color:#4a5260; font-size:12px; line-height:1.6; cursor:pointer; }
 .consult-consent input { width:17px; height:17px; margin:0; accent-color:var(--blue); }
 .consult-assurance { display:flex; align-items:center; gap:18px; padding:20px 24px; border-radius:7px; background:linear-gradient(90deg,#edf5ff,#f3f7fd); }
-.consult-assurance-icon { display:grid; place-items:center; flex:0 0 auto; width:42px; height:42px; border:2px solid var(--blue); border-radius:50%; color:var(--blue); font-size:25px; line-height:1; }
+.consult-assurance-icon { display:grid; place-items:center; flex:0 0 auto; width:42px; height:42px; border:2px solid var(--blue); border-radius:50%; color:var(--blue); }
+.consult-assurance-icon svg { width:31px; height:31px; stroke:currentColor; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
 .consult-assurance p { margin:0; color:#3d4653; font-size:12px; line-height:1.7; }
 .consult-assurance strong { display:block; color:#19202a; font-size:14px; }
 .consult-assurance-security { flex:0 0 234px; margin-left:auto; color:#69717e; text-align:center; font-size:10px; line-height:1.4; }

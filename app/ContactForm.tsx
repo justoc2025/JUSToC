@@ -168,7 +168,12 @@ export default function ContactForm({ enabled, turnstileSiteKey }: { enabled: bo
         <span>{formContent.consent}</span>
       </label>
       <div className="consult-assurance">
-        <span className="consult-assurance-icon" aria-hidden="true">✉</span>
+        <span className="consult-assurance-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="8.5" />
+            <path d="M12 7.5v5l3.25 2" />
+          </svg>
+        </span>
         <p><strong>{formContent.assuranceTitle}</strong>通常1〜2営業日以内にご返信いたします。<br />まずはお気軽にご相談ください。</p>
         <div className="consult-assurance-security">
           <span>セキュリティ確認は自動で行われます。</span>
