@@ -168,11 +168,15 @@ export default function ContactForm({ enabled, turnstileSiteKey }: { enabled: bo
         <span>{formContent.consent}</span>
       </label>
       <div className="consult-assurance">
-        <span aria-hidden="true">✓</span>
-        <p><strong>{formContent.assuranceTitle}</strong>{formContent.assuranceText}</p>
+        <span className="consult-assurance-icon" aria-hidden="true">✉</span>
+        <p><strong>{formContent.assuranceTitle}</strong>通常1〜2営業日以内にご返信いたします。<br />まずはお気軽にご相談ください。</p>
+        <div className="consult-assurance-security">
+          <span>セキュリティ確認は自動で行われます。</span>
+          <div className="consult-turnstile-frame">
+            <div className="consult-turnstile" ref={turnstileElement} aria-label="ロボットではないことの確認" />
+          </div>
+        </div>
       </div>
-      <p className="consult-turnstile-note">セキュリティ確認は自動で行われます。</p>
-      <div className="consult-turnstile" ref={turnstileElement} aria-label="ロボットではないことの確認" />
       <button className="consult-submit" type="submit" disabled={!enabled || sending || !consentAccepted || !turnstileToken}>
         {sending ? "送信しています…" : enabled ? formContent.submitLabel : "ただいま準備中です"}<span aria-hidden="true">→</span>
       </button>
